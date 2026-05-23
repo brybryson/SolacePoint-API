@@ -38,68 +38,110 @@ if (gmailUser && gmailPass && gmailPass !== 'YOUR_GMAIL_APP_PASSWORD') {
 const REPLY_TO_EMAIL = 'solacepoint.insuranceagency@gmail.com';
 const INTERNAL_ALERT_RECIPIENT = 'solacepoint.insuranceagency@gmail.com'; // Your inbox where you want to read all incoming client leads
 
-// Beautiful premium HSL Hues Template Wrapper (Wide Landscape Format)
+// Beautiful premium HTML Widescreen Template Wrapper (Full-Width Landscape Format matching Website theme)
 function buildHtmlTemplate(title, subtitle, contentHtml, isAlert = false) {
-  const accentColor = '#b38f4f'; // Premium Solace Gold
-  const primaryColor = '#0c2340'; // Deep Navy Slate
-  const bgColor = isAlert ? '#f3f4f6' : '#fcfbfa'; // Architectural light gray vs creamy museum white
+  const accentColor = '#DDB959'; // Solace Gold from website
+  const primaryColor = '#1E3F62'; // Primary Deep Blue from website
+  const bgColor = isAlert ? '#f5f3f4' : '#fbf9fa'; // Website's surface-container-low vs background
 
   return `
-    <div style="background-color: ${bgColor}; padding: 40px 20px; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; color: #2d3748; line-height: 1.6;">
-      <div style="max-width: 850px; margin: 0 auto; background-color: #ffffff; border-radius: 24px; overflow: hidden; box-shadow: 0 12px 40px rgba(12, 35, 64, 0.04); border: 1px solid #edf2f7;">
+    <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+    <html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+      <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <title>Solace Point</title>
+        <!-- Import Montserrat & Playfair Display directly -->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&family=Playfair+Display:ital,wght@0,500;0,600;0,700;0,800;1,600&display=swap" rel="stylesheet">
         
-        <!-- Header Banner (Landscape Layout Mirroring Website Navbar) -->
-        <div style="background-color: ${primaryColor}; padding: 30px 40px; border-bottom: 3px solid ${accentColor};">
-          <table style="width: 100%; border-collapse: collapse;">
-            <tr>
-              <!-- Brand Identity Column -->
-              <td style="vertical-align: middle; text-align: left;">
-                <table style="border-collapse: collapse;">
-                  <tr>
-                    <td style="padding-right: 15px; vertical-align: middle;">
-                      <img src="cid:logo" alt="Solace Point Logo" style="height: 50px; object-fit: contain;" />
-                    </td>
-                    <td style="vertical-align: middle; border-left: 1px solid rgba(255, 255, 255, 0.15); padding-left: 15px;">
-                      <span style="font-family: 'Times New Roman', Georgia, serif; font-size: 20px; font-weight: bold; letter-spacing: 0.08em; color: #ffffff; display: block; text-transform: uppercase; line-height: 1.1;">Solace Point</span>
-                      <span style="font-size: 9px; font-weight: bold; text-transform: uppercase; letter-spacing: 0.25em; color: ${accentColor}; display: block; margin-top: 5px;">Architects of Stability</span>
-                    </td>
-                  </tr>
-                </table>
-              </td>
-              <!-- Action Description Column -->
-              <td style="text-align: right; vertical-align: middle;">
-                <span style="font-size: 10px; font-weight: bold; text-transform: uppercase; letter-spacing: 0.2em; color: ${accentColor}; display: block; margin-bottom: 4px;">
-                  ${subtitle}
-                </span>
-                <h1 style="color: #ffffff; font-size: 20px; font-weight: 300; margin: 0; letter-spacing: -0.01em; text-transform: uppercase;">
-                  ${title}
-                </h1>
-              </td>
-            </tr>
-          </table>
-        </div>
+        <style type="text/css">
+          /* Client-specific Styles */
+          body, table, td, a { -webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; }
+          table, td { mso-table-lspace: 0pt; mso-table-rspace: 0pt; }
+          img { -ms-interpolation-mode: bicubic; }
+          
+          /* Reset Styles */
+          img { border: 0; height: auto; line-height: 100%; outline: none; text-decoration: none; }
+          table { border-collapse: collapse !important; }
+          body { height: 100% !important; margin: 0 !important; padding: 0 !important; width: 100% !important; }
+          
+          /* Widescreen styles */
+          .email-container {
+            width: 100% !important;
+            max-width: 100% !important;
+            margin: 0 !important;
+            padding: 0 !important;
+            background-color: #ffffff;
+          }
+          
+          /* Custom Typography Fallbacks */
+          .font-playfair {
+            font-family: 'Playfair Display', Georgia, Cambria, "Times New Roman", Times, serif !important;
+          }
+          .font-montserrat {
+            font-family: 'Montserrat', "Helvetica Neue", Helvetica, Arial, sans-serif !important;
+          }
+        </style>
+      </head>
+      <body style="margin: 0 !important; padding: 0 !important; background-color: ${bgColor}; font-family: 'Montserrat', 'Helvetica Neue', Helvetica, Arial, sans-serif;">
+        <div class="email-container">
+          
+          <!-- Header Banner (Cinematic Full-Width Layout Mirroring Website Navbar) -->
+          <div style="background-color: ${primaryColor}; padding: 40px 6%; border-bottom: 4px solid ${accentColor};">
+            <table style="width: 100%; border-collapse: collapse;">
+              <tr>
+                <!-- Brand Identity Column -->
+                <td style="vertical-align: middle; text-align: left;">
+                  <table style="border-collapse: collapse;">
+                    <tr>
+                      <td style="padding-right: 25px; vertical-align: middle;">
+                        <img src="cid:logo" alt="Solace Point Logo" style="height: 85px; object-fit: contain; display: block;" />
+                      </td>
+                      <td style="vertical-align: middle; border-left: 2px solid rgba(255, 255, 255, 0.15); padding-left: 25px;">
+                        <span class="font-playfair" style="font-size: 28px; font-weight: 700; letter-spacing: 0.04em; color: #ffffff; display: block; text-transform: uppercase; line-height: 1.1;">Solace Point</span>
+                        <span class="font-montserrat" style="font-size: 10px; font-weight: 800; text-transform: uppercase; letter-spacing: 0.35em; color: ${accentColor}; display: block; margin-top: 8px;">Architects of Stability</span>
+                      </td>
+                    </tr>
+                  </table>
+                </td>
+                <!-- Action Description Column -->
+                <td style="text-align: right; vertical-align: middle;">
+                  <span class="font-montserrat" style="font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.25em; color: ${accentColor}; display: block; margin-bottom: 6px;">
+                    ${subtitle}
+                  </span>
+                  <h1 class="font-playfair" style="color: #ffffff; font-size: 26px; font-weight: 600; margin: 0; letter-spacing: -0.01em; text-transform: uppercase; line-height: 1.2;">
+                    ${title}
+                  </h1>
+                </td>
+              </tr>
+            </table>
+          </div>
 
-        <!-- Main Content Area -->
-        <div style="padding: 40px 40px; background-color: #ffffff;">
-          ${contentHtml}
-        </div>
+          <!-- Main Content Area (Full-Width Fluid Padding) -->
+          <div style="padding: 60px 6%; background-color: #ffffff;">
+            ${contentHtml}
+          </div>
 
-        <!-- Footer block -->
-        <div style="background-color: #fafbfc; border-top: 1px solid #f0f2f5; padding: 35px 20px; text-align: center;">
-          <p style="margin: 0; font-size: 12px; font-weight: bold; color: ${primaryColor}; text-transform: uppercase; letter-spacing: 0.2em;">
-            SOLACE POINT
-          </p>
-          <p style="margin: 4px 0 0 0; font-size: 9px; color: ${accentColor}; font-weight: bold; text-transform: uppercase; letter-spacing: 0.3em;">
-            Insurance Agency
-          </p>
-          <p style="margin: 20px 0 0 0; font-size: 11px; color: #718096; line-height: 1.6;">
-            Stability in Security. Clarity in Service.<br/>
-            ${REPLY_TO_EMAIL} | (02) 8800 1234
-          </p>
-        </div>
+          <!-- Footer block (Full-Width Fluid) -->
+          <div style="background-color: #f5f3f4; border-top: 1px solid #dee3eb; padding: 45px 6%; text-align: center;">
+            <p class="font-playfair" style="margin: 0; font-size: 16px; font-weight: bold; color: ${primaryColor}; text-transform: uppercase; letter-spacing: 0.2em;">
+              SOLACE POINT
+            </p>
+            <p class="font-montserrat" style="margin: 6px 0 0 0; font-size: 9px; color: ${accentColor}; font-weight: bold; text-transform: uppercase; letter-spacing: 0.4em;">
+              Insurance Agency
+            </p>
+            <div style="width: 50px; height: 1px; background-color: ${accentColor}; margin: 25px auto;"></div>
+            <p class="font-montserrat" style="margin: 0; font-size: 12px; color: #43474e; line-height: 1.8; letter-spacing: 0.02em;">
+              Stability in Security. Clarity in Service.<br/>
+              <span style="color: ${primaryColor}; font-weight: 600;">${REPLY_TO_EMAIL}</span> | (02) 8800 1234
+            </p>
+          </div>
 
-      </div>
-    </div>
+        </div>
+      </body>
+    </html>
   `;
 }
 
