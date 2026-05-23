@@ -89,29 +89,29 @@ function buildHtmlTemplate(title, subtitle, contentHtml, isAlert = false) {
         <div class="email-container">
           
           <!-- Header Banner (Cinematic Full-Width Layout Mirroring Website Navbar) -->
-          <div style="background-color: ${primaryColor}; padding: 40px 6%; border-bottom: 4px solid ${accentColor};">
+          <div style="background-color: ${primaryColor}; padding: 30px 6%; border-bottom: 4px solid ${accentColor};">
             <table style="width: 100%; border-collapse: collapse;">
               <tr>
                 <!-- Brand Identity Column -->
                 <td style="vertical-align: middle; text-align: left;">
                   <table style="border-collapse: collapse;">
                     <tr>
-                      <td style="padding-right: 25px; vertical-align: middle;">
-                        <img src="cid:logo" alt="Solace Point Logo" style="height: 85px; object-fit: contain; display: block;" />
+                      <td style="padding-right: 20px; vertical-align: middle;">
+                        <img src="cid:logo" alt="Solace Point Logo" style="height: 70px; object-fit: contain; display: block;" />
                       </td>
-                      <td style="vertical-align: middle; border-left: 2px solid rgba(255, 255, 255, 0.15); padding-left: 25px;">
-                        <span class="font-playfair" style="font-size: 28px; font-weight: 700; letter-spacing: 0.04em; color: #ffffff; display: block; text-transform: uppercase; line-height: 1.1;">Solace Point</span>
-                        <span class="font-montserrat" style="font-size: 10px; font-weight: 800; text-transform: uppercase; letter-spacing: 0.35em; color: ${accentColor}; display: block; margin-top: 8px;">Architects of Stability</span>
+                      <td style="vertical-align: middle; border-left: 2px solid rgba(255, 255, 255, 0.15); padding-left: 20px;">
+                        <span class="font-playfair" style="font-size: 24px; font-weight: 700; letter-spacing: 0.04em; color: #ffffff; display: block; text-transform: uppercase; line-height: 1.1;">Solace Point</span>
+                        <span class="font-montserrat" style="font-size: 9px; font-weight: 800; text-transform: uppercase; letter-spacing: 0.3em; color: ${accentColor}; display: block; margin-top: 6px;">Architects of Stability</span>
                       </td>
                     </tr>
                   </table>
                 </td>
                 <!-- Action Description Column -->
                 <td style="text-align: right; vertical-align: middle;">
-                  <span class="font-montserrat" style="font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.25em; color: ${accentColor}; display: block; margin-bottom: 6px;">
+                  <span class="font-montserrat" style="font-size: 9px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.25em; color: ${accentColor}; display: block; margin-bottom: 5px;">
                     ${subtitle}
                   </span>
-                  <h1 class="font-playfair" style="color: #ffffff; font-size: 26px; font-weight: 600; margin: 0; letter-spacing: -0.01em; text-transform: uppercase; line-height: 1.2;">
+                  <h1 class="font-playfair" style="color: #ffffff; font-size: 22px; font-weight: 600; margin: 0; letter-spacing: -0.01em; text-transform: uppercase; line-height: 1.2;">
                     ${title}
                   </h1>
                 </td>
@@ -120,23 +120,28 @@ function buildHtmlTemplate(title, subtitle, contentHtml, isAlert = false) {
           </div>
 
           <!-- Main Content Area (Full-Width Fluid Padding) -->
-          <div style="padding: 60px 6%; background-color: #ffffff;">
+          <div style="padding: 40px 6%; background-color: #ffffff;">
             ${contentHtml}
           </div>
 
-          <!-- Footer block (Full-Width Fluid) -->
-          <div style="background-color: #f5f3f4; border-top: 1px solid #dee3eb; padding: 45px 6%; text-align: center;">
-            <p class="font-playfair" style="margin: 0; font-size: 16px; font-weight: bold; color: ${primaryColor}; text-transform: uppercase; letter-spacing: 0.2em;">
-              SOLACE POINT
-            </p>
-            <p class="font-montserrat" style="margin: 6px 0 0 0; font-size: 9px; color: ${accentColor}; font-weight: bold; text-transform: uppercase; letter-spacing: 0.4em;">
-              Insurance Agency
-            </p>
-            <div style="width: 50px; height: 1px; background-color: ${accentColor}; margin: 25px auto;"></div>
-            <p class="font-montserrat" style="margin: 0; font-size: 12px; color: #43474e; line-height: 1.8; letter-spacing: 0.02em;">
-              Stability in Security. Clarity in Service.<br/>
-              <span style="color: ${primaryColor}; font-weight: 600;">${REPLY_TO_EMAIL}</span> | (02) 8800 1234
-            </p>
+          <!-- Footer block (Full-Width Fluid Sleeker Layout) -->
+          <div style="background-color: #f5f3f4; border-top: 1px solid #dee3eb; padding: 25px 6%; text-align: center;">
+            <table style="width: 100%; border-collapse: collapse;">
+              <tr>
+                <td style="text-align: center;">
+                  <span class="font-playfair" style="font-size: 13px; font-weight: bold; color: ${primaryColor}; text-transform: uppercase; letter-spacing: 0.15em; display: inline-block;">SOLACE POINT</span>
+                  <span class="font-montserrat" style="font-size: 8.5px; color: ${accentColor}; font-weight: bold; text-transform: uppercase; letter-spacing: 0.35em; margin-left: 10px; display: inline-block; border-left: 1px solid #dee3eb; padding-left: 10px;">Insurance Agency</span>
+                </td>
+              </tr>
+              <tr>
+                <td style="padding-top: 10px;">
+                  <p class="font-montserrat" style="margin: 0; font-size: 11px; color: #43474e; line-height: 1.6; letter-spacing: 0.02em;">
+                    Stability in Security. Clarity in Service. &nbsp;|&nbsp; 
+                    <span style="color: ${primaryColor}; font-weight: 600;">${REPLY_TO_EMAIL}</span> &nbsp;|&nbsp; (02) 8800 1234
+                  </p>
+                </td>
+              </tr>
+            </table>
           </div>
 
         </div>
