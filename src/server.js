@@ -1,6 +1,6 @@
 const express = require('express');
 const cors = require('cors');
-const nodemailer = require('nodemailer');
+const { Resend } = require('resend');
 const db = require('./db');
 require('dotenv').config();
 
@@ -16,28 +16,15 @@ app.use(cors({
 
 app.use(express.json());
 
-// Initialize Nodemailer SMTP Transporter using Gmail
-let transporter;
-const gmailUser = process.env.GMAIL_USER;
-const gmailPass = process.env.GMAIL_APP_PASSWORD;
+// Initialize Resend email client
+let resendClient;
+const resendApiKey = process.env.RESEND_API_KEY;
 
-if (gmailUser && gmailPass && gmailPass !== 'YOUR_GMAIL_APP_PASSWORD') {
-  transporter = nodemailer.createTransport({
-    host: 'smtp.gmail.com',
-    port: 587,
-    secure: false,
-    requireTLS: true,
-    auth: {
-      user: gmailUser,
-      pass: gmailPass
-    },
-    tls: {
-      ciphers: 'SSLv3'
-    }
-  });
-  console.log('📬 Nodemailer Gmail SMTP Transporter initialized successfully.');
+if (resendApiKey) {
+  resendClient = new Resend(resendApiKey);
+  console.log('📬 Resend Email Client initialized successfully.');
 } else {
-  console.warn('⚠️ WARNING: Gmail SMTP User or App Password is missing in .env. Email notifications will be skipped, but leads will still save to the database.');
+  console.warn('⚠️ WARNING: RESEND_API_KEY is missing in .env. Email notifications will be skipped.');
 }
 
 // Centralized configurations
@@ -100,7 +87,7 @@ function buildHtmlTemplate(title, subtitle, contentHtml, isAlert = false) {
                   <table style="border-collapse: collapse;">
                     <tr>
                       <td style="padding-right: 24px; vertical-align: middle;">
-                        <img src="cid:logo" alt="Solace Point Logo" style="height: 85px; object-fit: contain; display: block;" />
+                        <img src="https://solacepoint.vercel.app/SolacePointLogo.png" alt="Solace Point Logo" style="height: 85px; object-fit: contain; display: block;" />
                       </td>
                       <td style="vertical-align: middle; border-left: 2px solid rgba(255, 255, 255, 0.15); padding-left: 24px;">
                         <span class="font-montserrat" style="font-size: 26px; font-weight: 900; letter-spacing: 0.1em; color: #ffffff; display: block; text-transform: uppercase; line-height: 1.1;">Solace Point</span>
@@ -152,41 +139,31 @@ function buildHtmlTemplate(title, subtitle, contentHtml, isAlert = false) {
   `;
 }
 
-// Helper to send emails defensively
+// Helper to send emails defensively via Resend
 async function safeSendEmail(emailPayload) {
-  if (!transporter) {
-    console.log('✉️ Email send skipped (No valid Gmail SMTP configured):', emailPayload.subject);
+  if (!resendClient) {
+    console.log('✉️ Email send skipped (No valid Resend API key configured):', emailPayload.subject);
     return null;
   }
 
-  // Extract visual Display Name from Resend-style from string
-  let displayName = 'Solace Point';
-  if (emailPayload.from.includes('<')) {
-    displayName = emailPayload.from.split('<')[0].trim();
-  }
-
-  // Configure standard Nodemailer mail options
-  const mailOptions = {
-    from: `"${displayName}" <${gmailUser}>`,
-    to: emailPayload.to,
-    subject: emailPayload.subject,
-    html: emailPayload.html,
-    replyTo: REPLY_TO_EMAIL,
-    attachments: [
-      {
-        filename: 'SolacePointLogo.png',
-        path: require('path').join(__dirname, 'assets', 'SolacePointLogo.png'),
-        cid: 'logo'
-      }
-    ]
-  };
-
   try {
-    const info = await transporter.sendMail(mailOptions);
-    console.log('✉️ Email sent successfully:', emailPayload.subject, 'MessageID:', info.messageId);
-    return info;
+    const { data, error } = await resendClient.emails.send({
+      from: `${emailPayload.from} <onboarding@resend.dev>`,
+      to: [emailPayload.to],
+      subject: emailPayload.subject,
+      html: emailPayload.html,
+      reply_to: REPLY_TO_EMAIL
+    });
+
+    if (error) {
+      console.error('❌ Failed to send email via Resend:', emailPayload.subject, error.message);
+      return null;
+    }
+
+    console.log('✉️ Email sent successfully:', emailPayload.subject, 'ID:', data.id);
+    return data;
   } catch (error) {
-    console.error('❌ Failed to send email via Gmail SMTP:', emailPayload.subject, error.message);
+    console.error('❌ Failed to send email via Resend:', emailPayload.subject, error.message);
     return null;
   }
 }
