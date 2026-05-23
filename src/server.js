@@ -229,7 +229,7 @@ app.post('/api/contact', async (req, res) => {
           <tr>
             <!-- Left Column: Context & Message -->
             <td style="width: 50%; vertical-align: top; padding-right: 25px;">
-              <h3 style="font-family: 'Playfair Display', Georgia, serif; color: #1E3F62; font-size: 20px; font-weight: bold; margin-top: 0; margin-bottom: 15px;">Inquiry Overview</h3>
+              <h3 style="font-family: 'Montserrat', sans-serif; color: #1E3F62; font-size: 18px; font-weight: bold; margin-top: 0; margin-bottom: 15px;">Inquiry Overview</h3>
               <p style="font-family: 'Montserrat', sans-serif; font-size: 14px; color: #43474e; line-height: 1.7; margin-bottom: 25px;">A client has submitted an online inquiry. Our brand promise commits to securing absolute resolution for every contact within 24 hours.</p>
               
               <p style="margin: 0 0 8px 0; font-family: 'Montserrat', sans-serif; font-size: 12px; font-weight: bold; color: #1E3F62; text-transform: uppercase; letter-spacing: 0.05em;">Client Message:</p>
@@ -242,7 +242,7 @@ app.post('/api/contact', async (req, res) => {
             <!-- Right Column: Structured Table Card -->
             <td style="width: 50%; vertical-align: top; padding-left: 25px; border-left: 1px solid #dee3eb;">
               <div style="border: 1px solid #dee3eb; border-radius: 16px; padding: 25px; background-color: #fbf9fa;">
-                <h3 style="font-family: 'Playfair Display', Georgia, serif; color: #1E3F62; font-size: 13px; text-transform: uppercase; letter-spacing: 0.08em; margin-top: 0; margin-bottom: 15px; border-bottom: 1px solid #dee3eb; padding-bottom: 10px;">Submission Details</h3>
+                <h3 style="font-family: 'Montserrat', sans-serif; color: #1E3F62; font-size: 11px; text-transform: uppercase; letter-spacing: 0.08em; margin-top: 0; margin-bottom: 15px; border-bottom: 1px solid #dee3eb; padding-bottom: 10px; font-weight: bold;">Submission Details</h3>
                 
                 <table style="width: 100%; border-collapse: collapse; font-family: 'Montserrat', sans-serif; font-size: 13.5px; color: #43474e;">
                   <tr>
@@ -364,7 +364,7 @@ app.post('/api/quote', async (req, res) => {
           <tr>
             <!-- Left Column: Context & Specifications -->
             <td style="width: 45%; vertical-align: top; padding-right: 25px;">
-              <h3 style="font-family: 'Playfair Display', Georgia, serif; color: #1E3F62; font-size: 20px; font-weight: bold; margin-top: 0; margin-bottom: 15px;">Quote Overview</h3>
+              <h3 style="font-family: 'Montserrat', sans-serif; color: #1E3F62; font-size: 18px; font-weight: bold; margin-top: 0; margin-bottom: 15px;">Quote Overview</h3>
               <p style="font-family: 'Montserrat', sans-serif; font-size: 14px; color: #43474e; line-height: 1.7; margin-bottom: 25px;">A client has requested a custom non-life insurance portfolio review. Our team of risk architects is tasked with compiling optimized rates across our premium network.</p>
               
               <p style="margin: 0 0 8px 0; font-family: 'Montserrat', sans-serif; font-size: 12px; font-weight: bold; color: #1E3F62; text-transform: uppercase; letter-spacing: 0.05em;">Coverage Specifications:</p>
@@ -377,7 +377,7 @@ app.post('/api/quote', async (req, res) => {
             <!-- Right Column: Structured Table Card -->
             <td style="width: 55%; vertical-align: top; padding-left: 25px; border-left: 1px solid #dee3eb;">
               <div style="border: 1px solid #dee3eb; border-radius: 16px; padding: 25px; background-color: #fbf9fa;">
-                <h3 style="font-family: 'Playfair Display', Georgia, serif; color: #1E3F62; font-size: 13px; text-transform: uppercase; letter-spacing: 0.08em; margin-top: 0; margin-bottom: 15px; border-bottom: 1px solid #dee3eb; padding-bottom: 10px;">Submission Details</h3>
+                <h3 style="font-family: 'Montserrat', sans-serif; color: #1E3F62; font-size: 11px; text-transform: uppercase; letter-spacing: 0.08em; margin-top: 0; margin-bottom: 15px; border-bottom: 1px solid #dee3eb; padding-bottom: 10px; font-weight: bold;">Submission Details</h3>
                 
                 <table style="width: 100%; border-collapse: collapse; font-family: 'Montserrat', sans-serif; font-size: 13.5px; color: #43474e;">
                   <tr>
@@ -483,7 +483,6 @@ app.post('/api/advisory', async (req, res) => {
     console.log(`💾 Advisory request stored in Supabase. ID: ${advisoryId}`);
 
     // B. Send lead notification to your verified Gmail inbox
-    // B. Send lead notification to your verified Gmail inbox
     const alertHtml = buildHtmlTemplate(
       'New Consultation Request',
       `Reference #${advisoryId}`,
@@ -492,7 +491,7 @@ app.post('/api/advisory', async (req, res) => {
           <tr>
             <!-- Left Column: Context & Details -->
             <td style="width: 50%; vertical-align: top; padding-right: 25px;">
-              <h3 style="font-family: 'Playfair Display', Georgia, serif; color: #1E3F62; font-size: 20px; font-weight: bold; margin-top: 0; margin-bottom: 15px;">Consultation Overview</h3>
+              <h3 style="font-family: 'Montserrat', sans-serif; color: #1E3F62; font-size: 18px; font-weight: bold; margin-top: 0; margin-bottom: 15px;">Consultation Overview</h3>
               <p style="font-family: 'Montserrat', sans-serif; font-size: 14px; color: #43474e; line-height: 1.7; margin-bottom: 25px;">A client has requested a personal strategic consultation with an advisor. They are seeking architectural non-life solutions to shield their assets.</p>
               
               <p style="margin: 0 0 8px 0; font-family: 'Montserrat', sans-serif; font-size: 12px; font-weight: bold; color: #1E3F62; text-transform: uppercase; letter-spacing: 0.05em;">Consultation Goals:</p>
@@ -505,7 +504,7 @@ app.post('/api/advisory', async (req, res) => {
             <!-- Right Column: Structured Table Card -->
             <td style="width: 50%; vertical-align: top; padding-left: 25px; border-left: 1px solid #dee3eb;">
               <div style="border: 1px solid #dee3eb; border-radius: 16px; padding: 25px; background-color: #fbf9fa;">
-                <h3 style="font-family: 'Playfair Display', Georgia, serif; color: #1E3F62; font-size: 13px; text-transform: uppercase; letter-spacing: 0.08em; margin-top: 0; margin-bottom: 15px; border-bottom: 1px solid #dee3eb; padding-bottom: 10px;">Submission Details</h3>
+                <h3 style="font-family: 'Montserrat', sans-serif; color: #1E3F62; font-size: 11px; text-transform: uppercase; letter-spacing: 0.08em; margin-top: 0; margin-bottom: 15px; border-bottom: 1px solid #dee3eb; padding-bottom: 10px; font-weight: bold;">Submission Details</h3>
                 
                 <table style="width: 100%; border-collapse: collapse; font-family: 'Montserrat', sans-serif; font-size: 13.5px; color: #43474e;">
                   <tr>
@@ -614,7 +613,7 @@ app.post('/api/newsletter', async (req, res) => {
           <tr>
             <!-- Left Column: Context -->
             <td style="width: 50%; vertical-align: top; padding-right: 25px;">
-              <h3 style="font-family: 'Playfair Display', Georgia, serif; color: #1E3F62; font-size: 20px; font-weight: bold; margin-top: 0; margin-bottom: 15px;">Circle Subscription</h3>
+              <h3 style="font-family: 'Montserrat', sans-serif; color: #1E3F62; font-size: 18px; font-weight: bold; margin-top: 0; margin-bottom: 15px;">Circle Subscription</h3>
               <p style="font-family: 'Montserrat', sans-serif; font-size: 14px; color: #43474e; line-height: 1.7; margin-bottom: 20px;">A new reader has joined the Solace Point newsletter list to keep pace with modern asset preservation guidelines.</p>
               
               <div style="background-color: #fbf9fa; border: 1px dashed #DDB959; padding: 20px; border-radius: 12px; font-size: 13.5px; color: #43474e; line-height: 1.6; margin-top: 25px; font-family: 'Montserrat', sans-serif;">
@@ -625,7 +624,7 @@ app.post('/api/newsletter', async (req, res) => {
             <!-- Right Column: Structured Table Card -->
             <td style="width: 50%; vertical-align: top; padding-left: 25px; border-left: 1px solid #dee3eb;">
               <div style="border: 1px solid #dee3eb; border-radius: 16px; padding: 25px; background-color: #fbf9fa;">
-                <h3 style="font-family: 'Playfair Display', Georgia, serif; color: #1E3F62; font-size: 13px; text-transform: uppercase; letter-spacing: 0.08em; margin-top: 0; margin-bottom: 15px; border-bottom: 1px solid #dee3eb; padding-bottom: 10px;">Subscriber Details</h3>
+                <h3 style="font-family: 'Montserrat', sans-serif; color: #1E3F62; font-size: 11px; text-transform: uppercase; letter-spacing: 0.08em; margin-top: 0; margin-bottom: 15px; border-bottom: 1px solid #dee3eb; padding-bottom: 10px; font-weight: bold;">Subscriber Details</h3>
                 
                 <table style="width: 100%; border-collapse: collapse; font-family: 'Montserrat', sans-serif; font-size: 13.5px; color: #43474e;">
                   <tr>
