@@ -126,8 +126,7 @@ function buildHtmlTemplate(title, subtitle, contentHtml, isAlert = false) {
             <table style="width: 100%; border-collapse: collapse;">
               <tr>
                 <td style="text-align: center;">
-                  <span class="font-montserrat" style="font-size: 16px; font-weight: 800; color: ${primaryColor}; display: inline-block; vertical-align: middle;">Solace Point</span>
-                  <span class="font-montserrat" style="font-size: 16px; font-weight: 300; font-style: italic; color: ${accentColor}; margin-left: 8px; display: inline-block; vertical-align: middle;">Insurance Agency</span>
+                  <span class="font-montserrat" style="font-size: 16px; font-weight: 800; color: ${primaryColor}; display: inline-block; vertical-align: middle;">Solace Point Insurance Agency</span>
                 </td>
               </tr>
               <tr>
