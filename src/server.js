@@ -278,17 +278,45 @@ app.post('/api/contact', async (req, res) => {
       'Message Received',
       'Confirmation Copy',
       `
-        <p style="font-family: 'Montserrat', sans-serif; font-size: 22px; margin-top: 0; color: #1E3F62; font-weight: 800; letter-spacing: -0.01em;">Hello ${name},</p>
-        <p style="font-family: 'Montserrat', sans-serif; font-size: 15px; color: #43474e; line-height: 1.8; margin-bottom: 35px; font-weight: 400;">Thank you for contacting Solace Point Insurance Agency. We appreciate you taking the time to share your questions and protection needs with us.</p>
-        
-        <div style="background-color: #f9fbfd; border: 1px solid #e1e7ee; border-top: 4px solid #DDB959; border-radius: 12px; padding: 35px 40px; margin: 35px 0; text-align: center;">
-          <p style="margin: 0; font-family: 'Montserrat', sans-serif; font-size: 18px; font-weight: 800; color: #1E3F62; letter-spacing: 0.02em;">Lead Compilation Successful</p>
-          <p style="margin: 12px 0 0 0; font-family: 'Montserrat', sans-serif; font-size: 14.5px; color: #43474e; line-height: 1.8; font-weight: 400;">Your message has been securely parsed into our lead registry. <strong>A licensed risk advisor will review your request and contact you personally via phone call within 24 hours.</strong></p>
-        </div>
-
-        <p style="font-family: 'Montserrat', sans-serif; font-size: 12px; color: #7f8c8d; line-height: 1.8; margin-bottom: 0; border-top: 1px solid #dee3eb; padding-top: 25px; margin-top: 45px; font-weight: 400;">
-          *This is an automated confirmation receipt. Please do not reply directly to this email, as this address is unmonitored. For any immediate assistance, feel free to reach out to us at the address below.
-        </p>
+        <table style="width: 100%; border-collapse: collapse;">
+          <tr>
+            <!-- Left Column: Context -->
+            <td style="width: 50%; vertical-align: top; padding-right: 40px;">
+              <h3 style="font-family: 'Montserrat', sans-serif; color: #1E3F62; font-size: 20px; font-weight: 800; margin-top: 0; margin-bottom: 18px; letter-spacing: -0.02em;">Hello ${name},</h3>
+              <p style="font-family: 'Montserrat', sans-serif; font-size: 14.5px; color: #43474e; line-height: 1.8; margin-bottom: 20px; font-weight: 400;">Thank you for contacting Solace Point Insurance Agency. We appreciate you taking the time to share your questions and protection needs with us.</p>
+              <p style="font-family: 'Montserrat', sans-serif; font-size: 14.5px; color: #43474e; line-height: 1.8; margin-bottom: 0; font-weight: 400;">Our brand promise commits to absolute resolution. One of our specialists has already been notified and will verify the transmission specifications shortly.</p>
+              
+              <p style="font-family: 'Montserrat', sans-serif; font-size: 12px; color: #7f8c8d; line-height: 1.8; margin-top: 45px; margin-bottom: 0; border-top: 1px solid #dee3eb; padding-top: 25px; font-weight: 400;">
+                *This is an automated confirmation receipt. Please do not reply directly to this email. For any immediate assistance, feel free to contact us through our official channels.
+              </p>
+            </td>
+            
+            <!-- Right Column: Confirmation Card -->
+            <td style="width: 50%; vertical-align: top; padding-left: 40px; border-left: 1px solid #dee3eb;">
+              <div style="border: 1px solid #eef2f6; border-top: 4px solid #DDB959; border-radius: 16px; padding: 35px; background-color: #fbf9fa; box-shadow: 0 4px 20px rgba(0, 0, 0, 0.02);">
+                <span style="background-color: #fef7e0; color: #b06000; padding: 4px 12px; border-radius: 12px; font-size: 11px; font-weight: 800; text-transform: uppercase; letter-spacing: 0.05em; display: inline-block; font-family: 'Montserrat', sans-serif;">Status: Pending Review</span>
+                
+                <h3 style="font-family: 'Montserrat', sans-serif; color: #1E3F62; font-size: 16px; font-weight: 800; margin-top: 18px; margin-bottom: 10px; letter-spacing: -0.01em;">Lead Compilation Successful</h3>
+                <p style="font-family: 'Montserrat', sans-serif; font-size: 13.5px; color: #43474e; line-height: 1.7; margin-bottom: 25px; font-weight: 400;">Your message has been securely parsed into our registry. A licensed risk advisor will review your request and contact you personally via phone call within 24 hours.</p>
+                
+                <table style="width: 100%; border-collapse: collapse; font-family: 'Montserrat', sans-serif; font-size: 12.5px; color: #43474e; border-top: 1px dashed #dee3eb; padding-top: 20px;">
+                  <tr>
+                    <td style="padding: 12px 0 6px 0; font-weight: 700; width: 45%;">Lead Reference:</td>
+                    <td style="padding: 12px 0 6px 0; color: #1E3F62; font-weight: 600;">#${leadId}</td>
+                  </tr>
+                  <tr>
+                    <td style="padding: 6px 0; font-weight: 700;">Registry Status:</td>
+                    <td style="padding: 6px 0; color: #137333; font-weight: 600;">Securely Parsed</td>
+                  </tr>
+                  <tr>
+                    <td style="padding: 6px 0 12px 0; font-weight: 700;">Response Window:</td>
+                    <td style="padding: 6px 0 12px 0; color: #b06000; font-weight: 600;">Within 24 Hours</td>
+                  </tr>
+                </table>
+              </div>
+            </td>
+          </tr>
+        </table>
       `,
       false
     );
@@ -425,17 +453,45 @@ app.post('/api/quote', async (req, res) => {
       'Quote Review Underway',
       'Portfolio Copy',
       `
-        <p style="font-family: 'Montserrat', sans-serif; font-size: 22px; margin-top: 0; color: #1E3F62; font-weight: 800; letter-spacing: -0.01em;">Hello ${name},</p>
-        <p style="font-family: 'Montserrat', sans-serif; font-size: 15px; color: #43474e; line-height: 1.8; margin-bottom: 35px; font-weight: 400;">Thank you for choosing Solace Point. We have successfully compiled your portfolio specifications (Reference: <strong>#${quoteId}</strong>).</p>
-        
-        <div style="background-color: #f9fbfd; border: 1px solid #e1e7ee; border-top: 4px solid #DDB959; border-radius: 12px; padding: 35px 40px; margin: 35px 0; text-align: center;">
-          <p style="margin: 0; font-family: 'Montserrat', sans-serif; font-size: 18px; font-weight: 800; color: #1E3F62; letter-spacing: 0.02em;">Quote Calculation Initialized</p>
-          <p style="margin: 12px 0 0 0; font-family: 'Montserrat', sans-serif; font-size: 14.5px; color: #43474e; line-height: 1.8; font-weight: 400;">Our risk architects are already compiling premium tables across our top-tier network to secure optimized coverage terms and the best rates. <strong>A licensed advisor will contact you personally at ${phone} to present your customized insurance portfolio shortly.</strong></p>
-        </div>
-
-        <p style="font-family: 'Montserrat', sans-serif; font-size: 12px; color: #7f8c8d; line-height: 1.8; margin-bottom: 0; border-top: 1px solid #dee3eb; padding-top: 25px; margin-top: 45px; font-weight: 400;">
-          *This is an automated confirmation receipt. Please do not reply directly to this email, as this address is unmonitored. For any immediate questions, feel free to contact us through our official channels.
-        </p>
+        <table style="width: 100%; border-collapse: collapse;">
+          <tr>
+            <!-- Left Column: Context -->
+            <td style="width: 45%; vertical-align: top; padding-right: 40px;">
+              <h3 style="font-family: 'Montserrat', sans-serif; color: #1E3F62; font-size: 20px; font-weight: 800; margin-top: 0; margin-bottom: 18px; letter-spacing: -0.02em;">Hello ${name},</h3>
+              <p style="font-family: 'Montserrat', sans-serif; font-size: 14.5px; color: #43474e; line-height: 1.8; margin-bottom: 20px; font-weight: 400;">Thank you for choosing Solace Point. We have successfully compiled your portfolio specifications (Reference: <strong>#${quoteId}</strong>).</p>
+              <p style="font-family: 'Montserrat', sans-serif; font-size: 14.5px; color: #43474e; line-height: 1.8; margin-bottom: 0; font-weight: 400;">Our expert risk panel has already initiated assessment parameters to select high-end shielding solutions for your assets.</p>
+              
+              <p style="font-family: 'Montserrat', sans-serif; font-size: 12px; color: #7f8c8d; line-height: 1.8; margin-top: 45px; margin-bottom: 0; border-top: 1px solid #dee3eb; padding-top: 25px; font-weight: 400;">
+                *This is an automated confirmation receipt. Please do not reply directly to this email. For any immediate questions, feel free to contact us through our official channels.
+              </p>
+            </td>
+            
+            <!-- Right Column: Confirmation Card -->
+            <td style="width: 55%; vertical-align: top; padding-left: 40px; border-left: 1px solid #dee3eb;">
+              <div style="border: 1px solid #eef2f6; border-top: 4px solid #DDB959; border-radius: 16px; padding: 35px; background-color: #fbf9fa; box-shadow: 0 4px 20px rgba(0, 0, 0, 0.02);">
+                <span style="background-color: #e8f0fe; color: #1a73e8; padding: 4px 12px; border-radius: 12px; font-size: 11px; font-weight: 800; text-transform: uppercase; letter-spacing: 0.05em; display: inline-block; font-family: 'Montserrat', sans-serif;">Status: In Calculation</span>
+                
+                <h3 style="font-family: 'Montserrat', sans-serif; color: #1E3F62; font-size: 16px; font-weight: 800; margin-top: 18px; margin-bottom: 10px; letter-spacing: -0.01em;">Quote Calculation Initialized</h3>
+                <p style="font-family: 'Montserrat', sans-serif; font-size: 13.5px; color: #43474e; line-height: 1.7; margin-bottom: 25px; font-weight: 400;">Our risk architects are already compiling premium tables across our network to secure optimized coverage terms and the best rates. A licensed advisor will contact you personally at ${phone} to present your customized portfolio shortly.</p>
+                
+                <table style="width: 100%; border-collapse: collapse; font-family: 'Montserrat', sans-serif; font-size: 12.5px; color: #43474e; border-top: 1px dashed #dee3eb; padding-top: 20px;">
+                  <tr>
+                    <td style="padding: 12px 0 6px 0; font-weight: 700; width: 45%;">Quote Reference:</td>
+                    <td style="padding: 12px 0 6px 0; color: #1E3F62; font-weight: 600;">#${quoteId}</td>
+                  </tr>
+                  <tr>
+                    <td style="padding: 6px 0; font-weight: 700;">Current Stage:</td>
+                    <td style="padding: 6px 0; color: #1a73e8; font-weight: 600;">Architect Review</td>
+                  </tr>
+                  <tr>
+                    <td style="padding: 6px 0 12px 0; font-weight: 700;">Advisory Contact:</td>
+                    <td style="padding: 6px 0 12px 0; color: #1E3F62; font-weight: 600;">${phone}</td>
+                  </tr>
+                </table>
+              </div>
+            </td>
+          </tr>
+        </table>
       `,
       false
     );
@@ -540,17 +596,45 @@ app.post('/api/advisory', async (req, res) => {
       'Consultation Scheduled',
       'Advisory Copy',
       `
-        <p style="font-family: 'Montserrat', sans-serif; font-size: 22px; margin-top: 0; color: #1E3F62; font-weight: 800; letter-spacing: -0.01em;">Hello ${name},</p>
-        <p style="font-family: 'Montserrat', sans-serif; font-size: 15px; color: #43474e; line-height: 1.8; margin-bottom: 35px; font-weight: 400;">We have successfully scheduled your request to consult with a Solace Point risk advisor (Reference: <strong>#${advisoryId}</strong>).</p>
-        
-        <div style="background-color: #f9fbfd; border: 1px solid #e1e7ee; border-top: 4px solid #DDB959; border-radius: 12px; padding: 35px 40px; margin: 35px 0; text-align: center;">
-          <p style="margin: 0; font-family: 'Montserrat', sans-serif; font-size: 18px; font-weight: 800; color: #1E3F62; letter-spacing: 0.02em;">Expert Advisory Assigned</p>
-          <p style="margin: 12px 0 0 0; font-family: 'Montserrat', sans-serif; font-size: 14.5px; color: #43474e; line-height: 1.8; font-weight: 400;">A dedicated specialist in our <strong>${interest}</strong> division is currently reviewing your profile to assist with your architectural risk coverage. <strong>A representative will call you shortly to schedule your personal review session.</strong></p>
-        </div>
-
-        <p style="font-family: 'Montserrat', sans-serif; font-size: 12px; color: #7f8c8d; line-height: 1.8; margin-bottom: 0; border-top: 1px solid #dee3eb; padding-top: 25px; margin-top: 45px; font-weight: 400;">
-          *This is an automated confirmation receipt. Please do not reply directly to this email, as this address is unmonitored. For any immediate questions, feel free to contact us through our official channels.
-        </p>
+        <table style="width: 100%; border-collapse: collapse;">
+          <tr>
+            <!-- Left Column: Context -->
+            <td style="width: 50%; vertical-align: top; padding-right: 40px;">
+              <h3 style="font-family: 'Montserrat', sans-serif; color: #1E3F62; font-size: 20px; font-weight: 800; margin-top: 0; margin-bottom: 18px; letter-spacing: -0.02em;">Hello ${name},</h3>
+              <p style="font-family: 'Montserrat', sans-serif; font-size: 14.5px; color: #43474e; line-height: 1.8; margin-bottom: 20px; font-weight: 400;">We have successfully scheduled your request to consult with a Solace Point risk advisor (Reference: <strong>#${advisoryId}</strong>).</p>
+              <p style="font-family: 'Montserrat', sans-serif; font-size: 14.5px; color: #43474e; line-height: 1.8; margin-bottom: 0; font-weight: 400;">Our advisory hub delivers personalized asset protection strategies to shield what you've compiled.</p>
+              
+              <p style="font-family: 'Montserrat', sans-serif; font-size: 12px; color: #7f8c8d; line-height: 1.8; margin-top: 45px; margin-bottom: 0; border-top: 1px solid #dee3eb; padding-top: 25px; font-weight: 400;">
+                *This is an automated confirmation receipt. Please do not reply directly to this email. For any immediate questions, feel free to contact us through our official channels.
+              </p>
+            </td>
+            
+            <!-- Right Column: Confirmation Card -->
+            <td style="width: 50%; vertical-align: top; padding-left: 40px; border-left: 1px solid #dee3eb;">
+              <div style="border: 1px solid #eef2f6; border-top: 4px solid #DDB959; border-radius: 16px; padding: 35px; background-color: #fbf9fa; box-shadow: 0 4px 20px rgba(0, 0, 0, 0.02);">
+                <span style="background-color: #f3e8fd; color: #9c27b0; padding: 4px 12px; border-radius: 12px; font-size: 11px; font-weight: 800; text-transform: uppercase; letter-spacing: 0.05em; display: inline-block; font-family: 'Montserrat', sans-serif;">Status: Specialist Assigned</span>
+                
+                <h3 style="font-family: 'Montserrat', sans-serif; color: #1E3F62; font-size: 16px; font-weight: 800; margin-top: 18px; margin-bottom: 10px; letter-spacing: -0.01em;">Expert Advisory Assigned</h3>
+                <p style="font-family: 'Montserrat', sans-serif; font-size: 13.5px; color: #43474e; line-height: 1.7; margin-bottom: 25px; font-weight: 400;">A dedicated specialist in our <strong>${interest}</strong> division is currently reviewing your profile to assist with your coverage goals. A representative will call you shortly to schedule your personal review session.</p>
+                
+                <table style="width: 100%; border-collapse: collapse; font-family: 'Montserrat', sans-serif; font-size: 12.5px; color: #43474e; border-top: 1px dashed #dee3eb; padding-top: 20px;">
+                  <tr>
+                    <td style="padding: 12px 0 6px 0; font-weight: 700; width: 45%;">Advisory Reference:</td>
+                    <td style="padding: 12px 0 6px 0; color: #1E3F62; font-weight: 600;">#${advisoryId}</td>
+                  </tr>
+                  <tr>
+                    <td style="padding: 6px 0; font-weight: 700;">Area of Focus:</td>
+                    <td style="padding: 6px 0; color: #1E3F62; font-weight: 600; text-transform: capitalize;">${interest}</td>
+                  </tr>
+                  <tr>
+                    <td style="padding: 6px 0 12px 0; font-weight: 700;">Next Action:</td>
+                    <td style="padding: 6px 0 12px 0; color: #9c27b0; font-weight: 600;">Schedule Consultation Call</td>
+                  </tr>
+                </table>
+              </div>
+            </td>
+          </tr>
+        </table>
       `,
       false
     );
@@ -660,19 +744,50 @@ app.post('/api/newsletter', async (req, res) => {
       'Welcome to the Circle',
       'Subscription Copy',
       `
-        <h2 style="font-family: 'Montserrat', sans-serif; color: #1E3F62; font-weight: 800; margin-top: 0; margin-bottom: 30px; font-size: 24px; text-align: center; letter-spacing: -0.01em;">You Are in the Circle</h2>
-        <p style="font-family: 'Montserrat', sans-serif; font-size: 15px; color: #43474e; line-height: 1.8; margin-bottom: 20px; font-weight: 400;">Hello,</p>
-        <p style="font-family: 'Montserrat', sans-serif; font-size: 15px; color: #43474e; line-height: 1.8; margin-bottom: 20px; font-weight: 400;">Thank you for subscribing to the Solace Point newsletter. By joining the Circle, you will receive curated insights on risk management, custom insurance architecture, and updates on protecting what matters most to your life, home, and business.</p>
-        <p style="font-family: 'Montserrat', sans-serif; font-size: 15px; color: #43474e; line-height: 1.8; margin-bottom: 35px; font-weight: 400;">We promise to respect your inbox, delivering only meaningful, highly expert guidance direct from our licensed risk architects.</p>
-        
-        <div style="background-color: #f9fbfd; border: 1px solid #e1e7ee; border-top: 4px solid #DDB959; border-radius: 12px; padding: 35px 40px; text-align: center; margin: 35px 0;">
-          <p style="margin: 0; font-family: 'Montserrat', sans-serif; font-weight: 800; color: #1E3F62; font-size: 18px; letter-spacing: 0.02em;">Your Subscription is Fully Active</p>
-          <p style="margin: 8px 0 0 0; font-family: 'Montserrat', sans-serif; font-size: 14.5px; color: #8d9199; font-weight: 400;">No further action is required on your part.</p>
-        </div>
-
-        <p style="font-family: 'Montserrat', sans-serif; font-size: 12px; color: #7f8c8d; line-height: 1.8; margin-bottom: 0; border-top: 1px solid #dee3eb; padding-top: 25px; margin-top: 45px; text-align: center; font-weight: 400;">
-          *This is an automated confirmation receipt. Please do not reply directly to this email, as this address is unmonitored. For any immediate assistance, feel free to contact us through our official channels.
-        </p>
+        <table style="width: 100%; border-collapse: collapse;">
+          <tr>
+            <!-- Left Column: Context -->
+            <td style="width: 50%; vertical-align: top; padding-right: 40px;">
+              <h3 style="font-family: 'Montserrat', sans-serif; color: #1E3F62; font-size: 24px; font-weight: 800; margin-top: 0; margin-bottom: 20px; letter-spacing: -0.02em;">You Are in the Circle</h3>
+              <p style="font-family: 'Montserrat', sans-serif; font-size: 15px; color: #43474e; line-height: 1.8; margin-bottom: 20px; font-weight: 400;">Hello,</p>
+              <p style="font-family: 'Montserrat', sans-serif; font-size: 15px; color: #43474e; line-height: 1.8; margin-bottom: 20px; font-weight: 400;">Thank you for subscribing to the Solace Point newsletter. By joining the Circle, you will receive curated insights on risk management, custom insurance architecture, and updates on protecting what matters most to your life, home, and business.</p>
+              <p style="font-family: 'Montserrat', sans-serif; font-size: 15px; color: #43474e; line-height: 1.8; margin-bottom: 0; font-weight: 400;">We promise to respect your inbox, delivering only meaningful, highly expert guidance direct from our licensed risk architects.</p>
+              
+              <p style="font-family: 'Montserrat', sans-serif; font-size: 12px; color: #7f8c8d; line-height: 1.8; margin-top: 45px; margin-bottom: 0; border-top: 1px solid #dee3eb; padding-top: 25px; font-weight: 400;">
+                *This is an automated confirmation receipt. Please do not reply directly to this email. For any immediate assistance, feel free to contact us through our official channels.
+              </p>
+            </td>
+            
+            <!-- Right Column: Confirmation Card -->
+            <td style="width: 50%; vertical-align: top; padding-left: 40px; border-left: 1px solid #dee3eb;">
+              <div style="border: 1px solid #eef2f6; border-top: 4px solid #DDB959; border-radius: 16px; padding: 35px; background-color: #fbf9fa; box-shadow: 0 4px 20px rgba(0, 0, 0, 0.02);">
+                <span style="background-color: #e6f4ea; color: #137333; padding: 4px 12px; border-radius: 12px; font-size: 11px; font-weight: 800; text-transform: uppercase; letter-spacing: 0.05em; display: inline-block; font-family: 'Montserrat', sans-serif;">Status: Active</span>
+                
+                <h3 style="font-family: 'Montserrat', sans-serif; color: #1E3F62; font-size: 16px; font-weight: 800; margin-top: 18px; margin-bottom: 10px; letter-spacing: -0.01em;">Your Subscription is Fully Active</h3>
+                <p style="font-family: 'Montserrat', sans-serif; font-size: 13.5px; color: #8d9199; line-height: 1.7; margin-bottom: 25px; font-weight: 400;">No further action is required on your part. You have successfully initialized your priority access to Solace Point asset protection briefs.</p>
+                
+                <table style="width: 100%; border-collapse: collapse; font-family: 'Montserrat', sans-serif; font-size: 12.5px; color: #43474e; border-top: 1px dashed #dee3eb; padding-top: 20px;">
+                  <tr>
+                    <td style="padding: 12px 0 6px 0; font-weight: 700; width: 45%;">Registry ID:</td>
+                    <td style="padding: 12px 0 6px 0; color: #1E3F62; font-weight: 600;">#${subscriberId}</td>
+                  </tr>
+                  <tr>
+                    <td style="padding: 6px 0; font-weight: 700;">Frequency:</td>
+                    <td style="padding: 6px 0; color: #1E3F62; font-weight: 600;">Quarterly Briefs</td>
+                  </tr>
+                  <tr>
+                    <td style="padding: 6px 0; font-weight: 700;">Content:</td>
+                    <td style="padding: 6px 0; color: #1E3F62; font-weight: 600;">Automated Insights</td>
+                  </tr>
+                  <tr>
+                    <td style="padding: 6px 0 12px 0; font-weight: 700;">Joined Date:</td>
+                    <td style="padding: 6px 0 12px 0; color: #1E3F62; font-weight: 600;">${new Date().toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}</td>
+                  </tr>
+                </table>
+              </div>
+            </td>
+          </tr>
+        </table>
       `,
       false
     );
