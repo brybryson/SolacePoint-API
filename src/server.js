@@ -169,7 +169,7 @@ async function safeSendEmail(emailPayload) {
     attachments: [
       {
         filename: 'SolacePointLogo.png',
-        path: '/Users/macbookpro/Documents/SOLACE PROJECT/SolacePoint-WEB/src/assets/SolacePointLogo.png',
+        path: require('path').join(__dirname, 'assets', 'SolacePointLogo.png'),
         cid: 'logo'
       }
     ]
