@@ -249,7 +249,7 @@ app.post('/api/contact', async (req, res) => {
           </table>
           
           <p style="margin: 0 0 10px 0; font-family: 'Montserrat', sans-serif; font-size: 11px; font-weight: 800; color: #1E3F62; text-transform: uppercase; letter-spacing: 0.1em; text-align: left;">Client Message:</p>
-          <div style="background-color: #fbf9fa; border: 1px solid #dee3eb; padding: 25px; border-left: 4px solid #DDB959; font-style: italic; border-radius: 8px; line-height: 1.8; color: #2c3e50; font-size: 14.5px; font-family: 'Montserrat', sans-serif; font-weight: 400; text-align: left; margin-bottom: 35px;">
+          <div style="background-color: #f5f3f4; padding: 25px; border-radius: 8px; line-height: 1.8; color: #43474e; font-size: 14.5px; font-family: 'Montserrat', sans-serif; font-weight: 400; text-align: left; margin-bottom: 35px;">
             "${message.replace(/\n/g, '<br/>')}"
           </div>
           
@@ -394,7 +394,7 @@ app.post('/api/quote', async (req, res) => {
           </table>
           
           <p style="margin: 0 0 10px 0; font-family: 'Montserrat', sans-serif; font-size: 11px; font-weight: 800; color: #1E3F62; text-transform: uppercase; letter-spacing: 0.1em; text-align: left;">Coverage Specifications:</p>
-          <div style="background-color: #fbf9fa; border: 1px solid #dee3eb; padding: 25px; border-left: 4px solid #DDB959; font-style: italic; border-radius: 8px; line-height: 1.8; color: #2c3e50; font-size: 14.5px; font-family: 'Montserrat', sans-serif; font-weight: 400; text-align: left; margin-bottom: 35px;">
+          <div style="background-color: #f5f3f4; padding: 25px; border-radius: 8px; line-height: 1.8; color: #43474e; font-size: 14.5px; font-family: 'Montserrat', sans-serif; font-weight: 400; text-align: left; margin-bottom: 35px;">
             "${details ? details.replace(/\n/g, '<br/>') : 'None provided'}"
           </div>
           
@@ -507,7 +507,7 @@ app.post('/api/advisory', async (req, res) => {
           </table>
           
           <p style="margin: 0 0 10px 0; font-family: 'Montserrat', sans-serif; font-size: 11px; font-weight: 800; color: #1E3F62; text-transform: uppercase; letter-spacing: 0.1em; text-align: left;">Consultation Goals:</p>
-          <div style="background-color: #fbf9fa; border: 1px solid #dee3eb; padding: 25px; border-left: 4px solid #DDB959; font-style: italic; border-radius: 8px; line-height: 1.8; color: #2c3e50; font-size: 14.5px; font-family: 'Montserrat', sans-serif; font-weight: 400; text-align: left; margin-bottom: 35px;">
+          <div style="background-color: #f5f3f4; padding: 25px; border-radius: 8px; line-height: 1.8; color: #43474e; font-size: 14.5px; font-family: 'Montserrat', sans-serif; font-weight: 400; text-align: left; margin-bottom: 35px;">
             "${details.replace(/\n/g, '<br/>')}"
           </div>
           
