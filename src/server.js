@@ -23,10 +23,16 @@ const gmailPass = process.env.GMAIL_APP_PASSWORD;
 
 if (gmailUser && gmailPass && gmailPass !== 'YOUR_GMAIL_APP_PASSWORD') {
   transporter = nodemailer.createTransport({
-    service: 'gmail',
+    host: 'smtp.gmail.com',
+    port: 587,
+    secure: false,
+    requireTLS: true,
     auth: {
       user: gmailUser,
       pass: gmailPass
+    },
+    tls: {
+      ciphers: 'SSLv3'
     }
   });
   console.log('📬 Nodemailer Gmail SMTP Transporter initialized successfully.');
