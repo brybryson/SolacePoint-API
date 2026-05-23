@@ -182,37 +182,37 @@ app.post('/api/contact', async (req, res) => {
           <tr>
             <!-- Left Column: Context & Message -->
             <td style="width: 50%; vertical-align: top; padding-right: 25px;">
-              <h3 style="color: #0c2340; font-size: 18px; font-weight: bold; margin-top: 0; margin-bottom: 15px;">Inquiry Overview</h3>
-              <p style="font-size: 15px; color: #4a5568; line-height: 1.7; margin-bottom: 25px;">A client has submitted an online inquiry. Our brand promise commits to securing absolute resolution for every contact within 24 hours.</p>
+              <h3 style="font-family: 'Playfair Display', Georgia, serif; color: #1E3F62; font-size: 20px; font-weight: bold; margin-top: 0; margin-bottom: 15px;">Inquiry Overview</h3>
+              <p style="font-family: 'Montserrat', sans-serif; font-size: 14px; color: #43474e; line-height: 1.7; margin-bottom: 25px;">A client has submitted an online inquiry. Our brand promise commits to securing absolute resolution for every contact within 24 hours.</p>
               
-              <p style="margin: 0 0 8px 0; font-size: 13px; font-weight: bold; color: #0c2340; text-transform: uppercase; letter-spacing: 0.05em;">Client Message:</p>
-              <div style="background-color: #fcf9f2; border: 1px solid #f4e8cf; padding: 20px; border-left: 4px solid #b38f4f; font-style: italic; border-radius: 8px; line-height: 1.7; color: #4a5568; font-size: 14px;">
+              <p style="margin: 0 0 8px 0; font-family: 'Montserrat', sans-serif; font-size: 12px; font-weight: bold; color: #1E3F62; text-transform: uppercase; letter-spacing: 0.05em;">Client Message:</p>
+              <div style="background-color: #fbf9fa; border: 1px solid #dee3eb; padding: 20px; border-left: 4px solid #DDB959; font-style: italic; border-radius: 8px; line-height: 1.7; color: #43474e; font-size: 14px; font-family: 'Montserrat', sans-serif;">
                 "${message.replace(/\n/g, '<br/>')}"
               </div>
-              <p style="font-size: 13px; color: #718096; margin-top: 25px; margin-bottom: 0;">Please execute a professional follow-up call with the client inside the standard 24-hour response window.</p>
+              <p style="font-family: 'Montserrat', sans-serif; font-size: 12.5px; color: #8d9199; margin-top: 25px; margin-bottom: 0;">Please execute a professional follow-up call with the client inside the standard 24-hour response window.</p>
             </td>
             
             <!-- Right Column: Structured Table Card -->
-            <td style="width: 50%; vertical-align: top; padding-left: 25px; border-left: 1px solid #edf2f7;">
-              <div style="border: 1px solid #edf2f7; border-radius: 16px; padding: 25px; background-color: #fafbfc;">
-                <h3 style="color: #0c2340; font-size: 12px; text-transform: uppercase; letter-spacing: 0.08em; margin-top: 0; margin-bottom: 15px; border-bottom: 1px solid #edf2f7; padding-bottom: 10px;">Submission Details</h3>
+            <td style="width: 50%; vertical-align: top; padding-left: 25px; border-left: 1px solid #dee3eb;">
+              <div style="border: 1px solid #dee3eb; border-radius: 16px; padding: 25px; background-color: #fbf9fa;">
+                <h3 style="font-family: 'Playfair Display', Georgia, serif; color: #1E3F62; font-size: 13px; text-transform: uppercase; letter-spacing: 0.08em; margin-top: 0; margin-bottom: 15px; border-bottom: 1px solid #dee3eb; padding-bottom: 10px;">Submission Details</h3>
                 
-                <table style="width: 100%; border-collapse: collapse; font-size: 14px; color: #4a5568;">
+                <table style="width: 100%; border-collapse: collapse; font-family: 'Montserrat', sans-serif; font-size: 13.5px; color: #43474e;">
                   <tr>
-                    <td style="padding: 10px 0; font-weight: bold; width: 40%; border-bottom: 1px solid #edf2f7;">Lead ID:</td>
-                    <td style="padding: 10px 0; border-bottom: 1px solid #edf2f7; color: #b38f4f; font-weight: bold;">#${leadId}</td>
+                    <td style="padding: 10px 0; font-weight: bold; width: 40%; border-bottom: 1px solid #dee3eb;">Lead ID:</td>
+                    <td style="padding: 10px 0; border-bottom: 1px solid #dee3eb; color: #AF7F2A; font-weight: bold;">#${leadId}</td>
                   </tr>
                   <tr>
-                    <td style="padding: 10px 0; font-weight: bold; border-bottom: 1px solid #edf2f7;">Client Name:</td>
-                    <td style="padding: 10px 0; border-bottom: 1px solid #edf2f7; color: #0c2340; font-weight: 500;">${name}</td>
+                    <td style="padding: 10px 0; font-weight: bold; border-bottom: 1px solid #dee3eb;">Client Name:</td>
+                    <td style="padding: 10px 0; border-bottom: 1px solid #dee3eb; color: #1E3F62; font-weight: 600;">${name}</td>
                   </tr>
                   <tr>
-                    <td style="padding: 10px 0; font-weight: bold; border-bottom: 1px solid #edf2f7;">Email Address:</td>
-                    <td style="padding: 10px 0; border-bottom: 1px solid #edf2f7; color: #0c2340;">${email}</td>
+                    <td style="padding: 10px 0; font-weight: bold; border-bottom: 1px solid #dee3eb;">Email Address:</td>
+                    <td style="padding: 10px 0; border-bottom: 1px solid #dee3eb; color: #1E3F62;">${email}</td>
                   </tr>
                   <tr>
-                    <td style="padding: 10px 0; font-weight: bold; border-bottom: 1px solid #edf2f7;">Source Portal:</td>
-                    <td style="padding: 10px 0; border-bottom: 1px solid #edf2f7;">Web Form (/contact)</td>
+                    <td style="padding: 10px 0; font-weight: bold; border-bottom: 1px solid #dee3eb;">Source Portal:</td>
+                    <td style="padding: 10px 0; border-bottom: 1px solid #dee3eb;">Web Form (/contact)</td>
                   </tr>
                 </table>
               </div>
@@ -235,15 +235,15 @@ app.post('/api/contact', async (req, res) => {
       'Message Received',
       'Confirmation Copy',
       `
-        <p style="font-size: 16px; margin-top: 0; color: #0c2340; font-weight: bold;">Hello ${name},</p>
-        <p style="font-size: 15px; color: #4a5568; line-height: 1.7;">Thank you for contacting Solace Point Insurance Agency. We appreciate you taking the time to share your questions and protection needs with us.</p>
+        <p style="font-family: 'Playfair Display', Georgia, serif; font-size: 20px; margin-top: 0; color: #1E3F62; font-weight: bold;">Hello ${name},</p>
+        <p style="font-family: 'Montserrat', sans-serif; font-size: 14.5px; color: #43474e; line-height: 1.7;">Thank you for contacting Solace Point Insurance Agency. We appreciate you taking the time to share your questions and protection needs with us.</p>
         
-        <div style="background-color: #fcf9f2; border: 1px solid #f4e8cf; border-radius: 16px; padding: 25px; margin: 30px 0; text-align: center;">
-          <p style="margin: 0; font-size: 15px; font-weight: bold; color: #0c2340;">Lead Compilation Successful</p>
-          <p style="margin: 8px 0 0 0; font-size: 14px; color: #718096; line-height: 1.6;">Your message has been securely parsed into our lead registry. <strong>A licensed risk advisor will review your request and contact you personally via phone call within 24 hours.</strong></p>
+        <div style="background-color: #fbf9fa; border: 1px solid #dee3eb; border-radius: 16px; padding: 25px; margin: 30px 0; text-align: center;">
+          <p style="margin: 0; font-family: 'Playfair Display', Georgia, serif; font-size: 16px; font-weight: bold; color: #1E3F62;">Lead Compilation Successful</p>
+          <p style="margin: 8px 0 0 0; font-family: 'Montserrat', sans-serif; font-size: 13.5px; color: #43474e; line-height: 1.7;">Your message has been securely parsed into our lead registry. <strong>A licensed risk advisor will review your request and contact you personally via phone call within 24 hours.</strong></p>
         </div>
 
-        <p style="font-size: 13px; color: #718096; font-style: italic; line-height: 1.6; margin-bottom: 0; border-top: 1px solid #f0f2f5; padding-top: 20px;">
+        <p style="font-family: 'Montserrat', sans-serif; font-size: 12px; color: #8d9199; font-style: italic; line-height: 1.6; margin-bottom: 0; border-top: 1px solid #dee3eb; padding-top: 20px;">
           *This is an automated confirmation receipt. Please do not reply directly to this email, as this address is unmonitored. For any immediate assistance, feel free to reach out to us at the address below.
         </p>
       `,
@@ -317,49 +317,49 @@ app.post('/api/quote', async (req, res) => {
           <tr>
             <!-- Left Column: Context & Specifications -->
             <td style="width: 45%; vertical-align: top; padding-right: 25px;">
-              <h3 style="color: #0c2340; font-size: 18px; font-weight: bold; margin-top: 0; margin-bottom: 15px;">Quote Overview</h3>
-              <p style="font-size: 15px; color: #4a5568; line-height: 1.7; margin-bottom: 25px;">A client has requested a custom non-life insurance portfolio review. Our team of risk architects is tasked with compiling optimized rates across our premium network.</p>
+              <h3 style="font-family: 'Playfair Display', Georgia, serif; color: #1E3F62; font-size: 20px; font-weight: bold; margin-top: 0; margin-bottom: 15px;">Quote Overview</h3>
+              <p style="font-family: 'Montserrat', sans-serif; font-size: 14px; color: #43474e; line-height: 1.7; margin-bottom: 25px;">A client has requested a custom non-life insurance portfolio review. Our team of risk architects is tasked with compiling optimized rates across our premium network.</p>
               
-              <p style="margin: 0 0 8px 0; font-size: 13px; font-weight: bold; color: #0c2340; text-transform: uppercase; letter-spacing: 0.05em;">Coverage Specifications:</p>
-              <div style="background-color: #fcf9f2; border: 1px solid #f4e8cf; padding: 20px; border-left: 4px solid #b38f4f; font-style: italic; border-radius: 8px; line-height: 1.7; color: #4a5568; font-size: 14px;">
+              <p style="margin: 0 0 8px 0; font-family: 'Montserrat', sans-serif; font-size: 12px; font-weight: bold; color: #1E3F62; text-transform: uppercase; letter-spacing: 0.05em;">Coverage Specifications:</p>
+              <div style="background-color: #fbf9fa; border: 1px solid #dee3eb; padding: 20px; border-left: 4px solid #DDB959; font-style: italic; border-radius: 8px; line-height: 1.7; color: #43474e; font-size: 14px; font-family: 'Montserrat', sans-serif;">
                 "${details ? details.replace(/\n/g, '<br/>') : 'None provided'}"
               </div>
-              <p style="font-size: 13px; color: #718096; margin-top: 25px; margin-bottom: 0;">Please compile rate proposals and contact the client immediately to deliver their portfolio review.</p>
+              <p style="font-family: 'Montserrat', sans-serif; font-size: 12.5px; color: #8d9199; margin-top: 25px; margin-bottom: 0;">Please compile rate proposals and contact the client immediately to deliver their portfolio review.</p>
             </td>
             
             <!-- Right Column: Structured Table Card -->
-            <td style="width: 55%; vertical-align: top; padding-left: 25px; border-left: 1px solid #edf2f7;">
-              <div style="border: 1px solid #edf2f7; border-radius: 16px; padding: 25px; background-color: #fafbfc;">
-                <h3 style="color: #0c2340; font-size: 12px; text-transform: uppercase; letter-spacing: 0.08em; margin-top: 0; margin-bottom: 15px; border-bottom: 1px solid #edf2f7; padding-bottom: 10px;">Submission Details</h3>
+            <td style="width: 55%; vertical-align: top; padding-left: 25px; border-left: 1px solid #dee3eb;">
+              <div style="border: 1px solid #dee3eb; border-radius: 16px; padding: 25px; background-color: #fbf9fa;">
+                <h3 style="font-family: 'Playfair Display', Georgia, serif; color: #1E3F62; font-size: 13px; text-transform: uppercase; letter-spacing: 0.08em; margin-top: 0; margin-bottom: 15px; border-bottom: 1px solid #dee3eb; padding-bottom: 10px;">Submission Details</h3>
                 
-                <table style="width: 100%; border-collapse: collapse; font-size: 14px; color: #4a5568;">
+                <table style="width: 100%; border-collapse: collapse; font-family: 'Montserrat', sans-serif; font-size: 13.5px; color: #43474e;">
                   <tr>
-                    <td style="padding: 10px 0; font-weight: bold; width: 40%; border-bottom: 1px solid #edf2f7;">Quote ID:</td>
-                    <td style="padding: 10px 0; border-bottom: 1px solid #edf2f7; color: #b38f4f; font-weight: bold;">#${quoteId}</td>
+                    <td style="padding: 10px 0; font-weight: bold; width: 40%; border-bottom: 1px solid #dee3eb;">Quote ID:</td>
+                    <td style="padding: 10px 0; border-bottom: 1px solid #dee3eb; color: #AF7F2A; font-weight: bold;">#${quoteId}</td>
                   </tr>
                   <tr>
-                    <td style="padding: 10px 0; font-weight: bold; border-bottom: 1px solid #edf2f7;">Client Name:</td>
-                    <td style="padding: 10px 0; border-bottom: 1px solid #edf2f7; color: #0c2340; font-weight: 500;">${name}</td>
+                    <td style="padding: 10px 0; font-weight: bold; border-bottom: 1px solid #dee3eb;">Client Name:</td>
+                    <td style="padding: 10px 0; border-bottom: 1px solid #dee3eb; color: #1E3F62; font-weight: 600;">${name}</td>
                   </tr>
                   <tr>
-                    <td style="padding: 10px 0; font-weight: bold; border-bottom: 1px solid #edf2f7;">Email Address:</td>
-                    <td style="padding: 10px 0; border-bottom: 1px solid #edf2f7; color: #0c2340;">${email}</td>
+                    <td style="padding: 10px 0; font-weight: bold; border-bottom: 1px solid #dee3eb;">Email Address:</td>
+                    <td style="padding: 10px 0; border-bottom: 1px solid #dee3eb; color: #1E3F62;">${email}</td>
                   </tr>
                   <tr>
-                    <td style="padding: 10px 0; font-weight: bold; border-bottom: 1px solid #edf2f7;">Phone Number:</td>
-                    <td style="padding: 10px 0; border-bottom: 1px solid #edf2f7; color: #0c2340;">${phone}</td>
+                    <td style="padding: 10px 0; font-weight: bold; border-bottom: 1px solid #dee3eb;">Phone Number:</td>
+                    <td style="padding: 10px 0; border-bottom: 1px solid #dee3eb; color: #1E3F62;">${phone}</td>
                   </tr>
                   <tr>
-                    <td style="padding: 10px 0; font-weight: bold; border-bottom: 1px solid #edf2f7;">Insurance Type:</td>
-                    <td style="padding: 10px 0; border-bottom: 1px solid #edf2f7; text-transform: capitalize;">${insuranceType} ${otherInsuranceType ? `(${otherInsuranceType})` : ''}</td>
+                    <td style="padding: 10px 0; font-weight: bold; border-bottom: 1px solid #dee3eb;">Insurance Type:</td>
+                    <td style="padding: 10px 0; border-bottom: 1px solid #dee3eb; text-transform: capitalize;">${insuranceType} ${otherInsuranceType ? `(${otherInsuranceType})` : ''}</td>
                   </tr>
                   <tr>
-                    <td style="padding: 10px 0; font-weight: bold; border-bottom: 1px solid #edf2f7;">Property Type:</td>
-                    <td style="padding: 10px 0; border-bottom: 1px solid #edf2f7; text-transform: capitalize;">${propertyType} ${otherPropertyType ? `(${otherPropertyType})` : ''}</td>
+                    <td style="padding: 10px 0; font-weight: bold; border-bottom: 1px solid #dee3eb;">Property Type:</td>
+                    <td style="padding: 10px 0; border-bottom: 1px solid #dee3eb; text-transform: capitalize;">${propertyType} ${otherPropertyType ? `(${otherPropertyType})` : ''}</td>
                   </tr>
                   <tr>
-                    <td style="padding: 10px 0; font-weight: bold; border-bottom: 1px solid #edf2f7;">Estimated Amount:</td>
-                    <td style="padding: 10px 0; color: #b38f4f; font-weight: bold; border-bottom: 1px solid #edf2f7;">₱${parseFloat(estimatedAmount).toLocaleString('en-US', { minimumFractionDigits: 2 })}</td>
+                    <td style="padding: 10px 0; font-weight: bold; border-bottom: 1px solid #dee3eb;">Estimated Amount:</td>
+                    <td style="padding: 10px 0; color: #AF7F2A; font-weight: bold; border-bottom: 1px solid #dee3eb;">₱${parseFloat(estimatedAmount).toLocaleString('en-US', { minimumFractionDigits: 2 })}</td>
                   </tr>
                 </table>
               </div>
@@ -382,15 +382,15 @@ app.post('/api/quote', async (req, res) => {
       'Quote Review Underway',
       'Portfolio Copy',
       `
-        <p style="font-size: 16px; margin-top: 0; color: #0c2340; font-weight: bold;">Hello ${name},</p>
-        <p style="font-size: 15px; color: #4a5568; line-height: 1.7;">Thank you for choosing Solace Point. We have successfully compiled your portfolio specifications (Reference: <strong>#${quoteId}</strong>).</p>
+        <p style="font-family: 'Playfair Display', Georgia, serif; font-size: 20px; margin-top: 0; color: #1E3F62; font-weight: bold;">Hello ${name},</p>
+        <p style="font-family: 'Montserrat', sans-serif; font-size: 14.5px; color: #43474e; line-height: 1.7;">Thank you for choosing Solace Point. We have successfully compiled your portfolio specifications (Reference: <strong>#${quoteId}</strong>).</p>
         
-        <div style="background-color: #fcf9f2; border: 1px solid #f4e8cf; border-radius: 16px; padding: 25px; margin: 30px 0; text-align: center;">
-          <p style="margin: 0; font-size: 15px; font-weight: bold; color: #0c2340;">Quote Calculation Initialized</p>
-          <p style="margin: 8px 0 0 0; font-size: 14px; color: #718096; line-height: 1.6;">Our risk architects are already compiling premium tables across our top-tier network to secure optimized coverage terms and the best rates. <strong>A licensed advisor will contact you personally at ${phone} to present your customized insurance portfolio shortly.</strong></p>
+        <div style="background-color: #fbf9fa; border: 1px solid #dee3eb; border-radius: 16px; padding: 25px; margin: 30px 0; text-align: center;">
+          <p style="margin: 0; font-family: 'Playfair Display', Georgia, serif; font-size: 16px; font-weight: bold; color: #1E3F62;">Quote Calculation Initialized</p>
+          <p style="margin: 8px 0 0 0; font-family: 'Montserrat', sans-serif; font-size: 13.5px; color: #43474e; line-height: 1.7;">Our risk architects are already compiling premium tables across our top-tier network to secure optimized coverage terms and the best rates. <strong>A licensed advisor will contact you personally at ${phone} to present your customized insurance portfolio shortly.</strong></p>
         </div>
 
-        <p style="font-size: 13px; color: #718096; font-style: italic; line-height: 1.6; margin-bottom: 0; border-top: 1px solid #f0f2f5; padding-top: 20px;">
+        <p style="font-family: 'Montserrat', sans-serif; font-size: 12px; color: #8d9199; font-style: italic; line-height: 1.6; margin-bottom: 0; border-top: 1px solid #dee3eb; padding-top: 20px;">
           *This is an automated confirmation receipt. Please do not reply directly to this email, as this address is unmonitored. For any immediate questions, feel free to contact us through our official channels.
         </p>
       `,
@@ -445,37 +445,37 @@ app.post('/api/advisory', async (req, res) => {
           <tr>
             <!-- Left Column: Context & Details -->
             <td style="width: 50%; vertical-align: top; padding-right: 25px;">
-              <h3 style="color: #0c2340; font-size: 18px; font-weight: bold; margin-top: 0; margin-bottom: 15px;">Consultation Overview</h3>
-              <p style="font-size: 15px; color: #4a5568; line-height: 1.7; margin-bottom: 25px;">A client has requested a personal strategic consultation with an advisor. They are seeking architectural non-life solutions to shield their assets.</p>
+              <h3 style="font-family: 'Playfair Display', Georgia, serif; color: #1E3F62; font-size: 20px; font-weight: bold; margin-top: 0; margin-bottom: 15px;">Consultation Overview</h3>
+              <p style="font-family: 'Montserrat', sans-serif; font-size: 14px; color: #43474e; line-height: 1.7; margin-bottom: 25px;">A client has requested a personal strategic consultation with an advisor. They are seeking architectural non-life solutions to shield their assets.</p>
               
-              <p style="margin: 0 0 8px 0; font-size: 13px; font-weight: bold; color: #0c2340; text-transform: uppercase; letter-spacing: 0.05em;">Consultation Goals:</p>
-              <div style="background-color: #fcf9f2; border: 1px solid #f4e8cf; padding: 20px; border-left: 4px solid #b38f4f; font-style: italic; border-radius: 8px; line-height: 1.7; color: #4a5568; font-size: 14px;">
+              <p style="margin: 0 0 8px 0; font-family: 'Montserrat', sans-serif; font-size: 12px; font-weight: bold; color: #1E3F62; text-transform: uppercase; letter-spacing: 0.05em;">Consultation Goals:</p>
+              <div style="background-color: #fbf9fa; border: 1px solid #dee3eb; padding: 20px; border-left: 4px solid #DDB959; font-style: italic; border-radius: 8px; line-height: 1.7; color: #43474e; font-size: 14px; font-family: 'Montserrat', sans-serif;">
                 "${details.replace(/\n/g, '<br/>')}"
               </div>
-              <p style="font-size: 13px; color: #718096; margin-top: 25px; margin-bottom: 0;">Please assign a specialist in our <strong>${interest}</strong> division and schedule a brief advisory call.</p>
+              <p style="font-family: 'Montserrat', sans-serif; font-size: 12.5px; color: #8d9199; margin-top: 25px; margin-bottom: 0;">Please assign a specialist in our <strong>${interest}</strong> division and schedule a brief advisory call.</p>
             </td>
             
             <!-- Right Column: Structured Table Card -->
-            <td style="width: 50%; vertical-align: top; padding-left: 25px; border-left: 1px solid #edf2f7;">
-              <div style="border: 1px solid #edf2f7; border-radius: 16px; padding: 25px; background-color: #fafbfc;">
-                <h3 style="color: #0c2340; font-size: 12px; text-transform: uppercase; letter-spacing: 0.08em; margin-top: 0; margin-bottom: 15px; border-bottom: 1px solid #edf2f7; padding-bottom: 10px;">Submission Details</h3>
+            <td style="width: 50%; vertical-align: top; padding-left: 25px; border-left: 1px solid #dee3eb;">
+              <div style="border: 1px solid #dee3eb; border-radius: 16px; padding: 25px; background-color: #fbf9fa;">
+                <h3 style="font-family: 'Playfair Display', Georgia, serif; color: #1E3F62; font-size: 13px; text-transform: uppercase; letter-spacing: 0.08em; margin-top: 0; margin-bottom: 15px; border-bottom: 1px solid #dee3eb; padding-bottom: 10px;">Submission Details</h3>
                 
-                <table style="width: 100%; border-collapse: collapse; font-size: 14px; color: #4a5568;">
+                <table style="width: 100%; border-collapse: collapse; font-family: 'Montserrat', sans-serif; font-size: 13.5px; color: #43474e;">
                   <tr>
-                    <td style="padding: 10px 0; font-weight: bold; width: 40%; border-bottom: 1px solid #edf2f7;">Consultation ID:</td>
-                    <td style="padding: 10px 0; border-bottom: 1px solid #edf2f7; color: #b38f4f; font-weight: bold;">#${advisoryId}</td>
+                    <td style="padding: 10px 0; font-weight: bold; width: 40%; border-bottom: 1px solid #dee3eb;">Consultation ID:</td>
+                    <td style="padding: 10px 0; border-bottom: 1px solid #dee3eb; color: #AF7F2A; font-weight: bold;">#${advisoryId}</td>
                   </tr>
                   <tr>
-                    <td style="padding: 10px 0; font-weight: bold; border-bottom: 1px solid #edf2f7;">Client Name:</td>
-                    <td style="padding: 10px 0; border-bottom: 1px solid #edf2f7; color: #0c2340; font-weight: 500;">${name}</td>
+                    <td style="padding: 10px 0; font-weight: bold; border-bottom: 1px solid #dee3eb;">Client Name:</td>
+                    <td style="padding: 10px 0; border-bottom: 1px solid #dee3eb; color: #1E3F62; font-weight: 600;">${name}</td>
                   </tr>
                   <tr>
-                    <td style="padding: 10px 0; font-weight: bold; border-bottom: 1px solid #edf2f7;">Email Address:</td>
-                    <td style="padding: 10px 0; border-bottom: 1px solid #edf2f7; color: #0c2340;">${email}</td>
+                    <td style="padding: 10px 0; font-weight: bold; border-bottom: 1px solid #dee3eb;">Email Address:</td>
+                    <td style="padding: 10px 0; border-bottom: 1px solid #dee3eb; color: #1E3F62;">${email}</td>
                   </tr>
                   <tr>
-                    <td style="padding: 10px 0; font-weight: bold; border-bottom: 1px solid #edf2f7;">Area of Interest:</td>
-                    <td style="padding: 10px 0; border-bottom: 1px solid #edf2f7; text-transform: capitalize; color: #0c2340; font-weight: 500;">${interest}</td>
+                    <td style="padding: 10px 0; font-weight: bold; border-bottom: 1px solid #dee3eb;">Area of Interest:</td>
+                    <td style="padding: 10px 0; border-bottom: 1px solid #dee3eb; text-transform: capitalize; color: #1E3F62; font-weight: 600;">${interest}</td>
                   </tr>
                 </table>
               </div>
@@ -498,15 +498,15 @@ app.post('/api/advisory', async (req, res) => {
       'Consultation Scheduled',
       'Advisory Copy',
       `
-        <p style="font-size: 16px; margin-top: 0; color: #0c2340; font-weight: bold;">Hello ${name},</p>
-        <p style="font-size: 15px; color: #4a5568; line-height: 1.7;">We have successfully scheduled your request to consult with a Solace Point risk advisor (Reference: <strong>#${advisoryId}</strong>).</p>
+        <p style="font-family: 'Playfair Display', Georgia, serif; font-size: 20px; margin-top: 0; color: #1E3F62; font-weight: bold;">Hello ${name},</p>
+        <p style="font-family: 'Montserrat', sans-serif; font-size: 14.5px; color: #43474e; line-height: 1.7;">We have successfully scheduled your request to consult with a Solace Point risk advisor (Reference: <strong>#${advisoryId}</strong>).</p>
         
-        <div style="background-color: #fcf9f2; border: 1px solid #f4e8cf; border-radius: 16px; padding: 25px; margin: 30px 0; text-align: center;">
-          <p style="margin: 0; font-size: 15px; font-weight: bold; color: #0c2340;">Expert Advisory Assigned</p>
-          <p style="margin: 8px 0 0 0; font-size: 14px; color: #718096; line-height: 1.6;">A dedicated specialist in our <strong>${interest}</strong> division is currently reviewing your profile to assist with your architectural risk coverage. <strong>A representative will call you shortly to schedule your personal review session.</strong></p>
+        <div style="background-color: #fbf9fa; border: 1px solid #dee3eb; border-radius: 16px; padding: 25px; margin: 30px 0; text-align: center;">
+          <p style="margin: 0; font-family: 'Playfair Display', Georgia, serif; font-size: 16px; font-weight: bold; color: #1E3F62;">Expert Advisory Assigned</p>
+          <p style="margin: 8px 0 0 0; font-family: 'Montserrat', sans-serif; font-size: 13.5px; color: #43474e; line-height: 1.7;">A dedicated specialist in our <strong>${interest}</strong> division is currently reviewing your profile to assist with your architectural risk coverage. <strong>A representative will call you shortly to schedule your personal review session.</strong></p>
         </div>
 
-        <p style="font-size: 13px; color: #718096; font-style: italic; line-height: 1.6; margin-bottom: 0; border-top: 1px solid #f0f2f5; padding-top: 20px;">
+        <p style="font-family: 'Montserrat', sans-serif; font-size: 12px; color: #8d9199; font-style: italic; line-height: 1.6; margin-bottom: 0; border-top: 1px solid #dee3eb; padding-top: 20px;">
           *This is an automated confirmation receipt. Please do not reply directly to this email, as this address is unmonitored. For any immediate questions, feel free to contact us through our official channels.
         </p>
       `,
@@ -567,35 +567,35 @@ app.post('/api/newsletter', async (req, res) => {
           <tr>
             <!-- Left Column: Context -->
             <td style="width: 50%; vertical-align: top; padding-right: 25px;">
-              <h3 style="color: #0c2340; font-size: 18px; font-weight: bold; margin-top: 0; margin-bottom: 15px;">Circle Subscription</h3>
-              <p style="font-size: 15px; color: #4a5568; line-height: 1.7; margin-bottom: 20px;">A new reader has joined the Solace Point newsletter list to keep pace with modern asset preservation guidelines.</p>
+              <h3 style="font-family: 'Playfair Display', Georgia, serif; color: #1E3F62; font-size: 20px; font-weight: bold; margin-top: 0; margin-bottom: 15px;">Circle Subscription</h3>
+              <p style="font-family: 'Montserrat', sans-serif; font-size: 14px; color: #43474e; line-height: 1.7; margin-bottom: 20px;">A new reader has joined the Solace Point newsletter list to keep pace with modern asset preservation guidelines.</p>
               
-              <div style="background-color: #fcf9f2; border: 1px dashed #b38f4f; padding: 20px; border-radius: 12px; font-size: 13.5px; color: #4a5568; line-height: 1.6; margin-top: 25px;">
+              <div style="background-color: #fbf9fa; border: 1px dashed #DDB959; padding: 20px; border-radius: 12px; font-size: 13.5px; color: #43474e; line-height: 1.6; margin-top: 25px; font-family: 'Montserrat', sans-serif;">
                 <strong>Welcome Protocol Complete:</strong> The subscriber is now configured to receive automated risk reports, non-life industry newsletters, and quarterly advisory briefs.
               </div>
             </td>
             
             <!-- Right Column: Structured Table Card -->
-            <td style="width: 50%; vertical-align: top; padding-left: 25px; border-left: 1px solid #edf2f7;">
-              <div style="border: 1px solid #edf2f7; border-radius: 16px; padding: 25px; background-color: #fafbfc;">
-                <h3 style="color: #0c2340; font-size: 12px; text-transform: uppercase; letter-spacing: 0.08em; margin-top: 0; margin-bottom: 15px; border-bottom: 1px solid #edf2f7; padding-bottom: 10px;">Subscriber Details</h3>
+            <td style="width: 50%; vertical-align: top; padding-left: 25px; border-left: 1px solid #dee3eb;">
+              <div style="border: 1px solid #dee3eb; border-radius: 16px; padding: 25px; background-color: #fbf9fa;">
+                <h3 style="font-family: 'Playfair Display', Georgia, serif; color: #1E3F62; font-size: 13px; text-transform: uppercase; letter-spacing: 0.08em; margin-top: 0; margin-bottom: 15px; border-bottom: 1px solid #dee3eb; padding-bottom: 10px;">Subscriber Details</h3>
                 
-                <table style="width: 100%; border-collapse: collapse; font-size: 14px; color: #4a5568;">
+                <table style="width: 100%; border-collapse: collapse; font-family: 'Montserrat', sans-serif; font-size: 13.5px; color: #43474e;">
                   <tr>
-                    <td style="padding: 10px 0; font-weight: bold; width: 45%; border-bottom: 1px solid #edf2f7;">Subscriber ID:</td>
-                    <td style="padding: 10px 0; border-bottom: 1px solid #edf2f7; color: #b38f4f; font-weight: bold;">#${subscriberId}</td>
+                    <td style="padding: 10px 0; font-weight: bold; width: 45%; border-bottom: 1px solid #dee3eb;">Subscriber ID:</td>
+                    <td style="padding: 10px 0; border-bottom: 1px solid #dee3eb; color: #AF7F2A; font-weight: bold;">#${subscriberId}</td>
                   </tr>
                   <tr>
-                    <td style="padding: 10px 0; font-weight: bold; border-bottom: 1px solid #edf2f7;">Email Address:</td>
-                    <td style="padding: 10px 0; border-bottom: 1px solid #edf2f7; color: #0c2340; font-weight: 500;">${email}</td>
+                    <td style="padding: 10px 0; font-weight: bold; border-bottom: 1px solid #dee3eb;">Email Address:</td>
+                    <td style="padding: 10px 0; border-bottom: 1px solid #dee3eb; color: #1E3F62; font-weight: 500;">${email}</td>
                   </tr>
                   <tr>
-                    <td style="padding: 10px 0; font-weight: bold; border-bottom: 1px solid #edf2f7;">Status:</td>
-                    <td style="padding: 10px 0; border-bottom: 1px solid #edf2f7;"><span style="background-color: #e6f4ea; color: #137333; padding: 3px 10px; border-radius: 12px; font-size: 11px; font-weight: bold; text-transform: uppercase; letter-spacing: 0.05em;">Active</span></td>
+                    <td style="padding: 10px 0; font-weight: bold; border-bottom: 1px solid #dee3eb;">Status:</td>
+                    <td style="padding: 10px 0; border-bottom: 1px solid #dee3eb;"><span style="background-color: #e6f4ea; color: #137333; padding: 3px 10px; border-radius: 12px; font-size: 11px; font-weight: bold; text-transform: uppercase; letter-spacing: 0.05em;">Active</span></td>
                   </tr>
                   <tr>
-                    <td style="padding: 10px 0; font-weight: bold; border-bottom: 1px solid #edf2f7;">Joined Date:</td>
-                    <td style="padding: 10px 0; border-bottom: 1px solid #edf2f7;">${new Date().toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}</td>
+                    <td style="padding: 10px 0; font-weight: bold; border-bottom: 1px solid #dee3eb;">Joined Date:</td>
+                    <td style="padding: 10px 0; border-bottom: 1px solid #dee3eb;">${new Date().toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}</td>
                   </tr>
                 </table>
               </div>
@@ -618,17 +618,17 @@ app.post('/api/newsletter', async (req, res) => {
       'Welcome to the Circle',
       'Subscription Copy',
       `
-        <h2 style="color: #0c2340; font-weight: bold; margin-top: 0; margin-bottom: 20px; font-size: 20px; text-align: center;">You Are in the Circle</h2>
-        <p style="font-size: 15px; color: #4a5568; line-height: 1.7;">Hello,</p>
-        <p style="font-size: 15px; color: #4a5568; line-height: 1.7;">Thank you for subscribing to the Solace Point newsletter. By joining the Circle, you will receive curated insights on risk management, custom insurance architecture, and updates on protecting what matters most to your life, home, and business.</p>
-        <p style="font-size: 15px; color: #4a5568; line-height: 1.7;">We promise to respect your inbox, delivering only meaningful, highly expert guidance direct from our licensed risk architects.</p>
+        <h2 style="font-family: 'Playfair Display', Georgia, serif; color: #1E3F62; font-weight: bold; margin-top: 0; margin-bottom: 20px; font-size: 22px; text-align: center;">You Are in the Circle</h2>
+        <p style="font-family: 'Montserrat', sans-serif; font-size: 14.5px; color: #43474e; line-height: 1.7;">Hello,</p>
+        <p style="font-family: 'Montserrat', sans-serif; font-size: 14.5px; color: #43474e; line-height: 1.7;">Thank you for subscribing to the Solace Point newsletter. By joining the Circle, you will receive curated insights on risk management, custom insurance architecture, and updates on protecting what matters most to your life, home, and business.</p>
+        <p style="font-family: 'Montserrat', sans-serif; font-size: 14.5px; color: #43474e; line-height: 1.7;">We promise to respect your inbox, delivering only meaningful, highly expert guidance direct from our licensed risk architects.</p>
         
-        <div style="background-color: #fcf9f2; border: 1px dashed #b38f4f; padding: 25px; border-radius: 12px; text-align: center; margin: 30px 0;">
-          <p style="margin: 0; font-weight: bold; color: #0c2340; font-size: 15px;">Your Subscription is Fully Active</p>
-          <p style="margin: 5px 0 0 0; font-size: 13px; color: #718096;">No further action is required on your part.</p>
+        <div style="background-color: #fbf9fa; border: 1px dashed #DDB959; padding: 25px; border-radius: 12px; text-align: center; margin: 30px 0;">
+          <p style="margin: 0; font-family: 'Playfair Display', Georgia, serif; font-weight: bold; color: #1E3F62; font-size: 16px;">Your Subscription is Fully Active</p>
+          <p style="margin: 5px 0 0 0; font-family: 'Montserrat', sans-serif; font-size: 13px; color: #8d9199;">No further action is required on your part.</p>
         </div>
 
-        <p style="font-size: 13px; color: #718096; font-style: italic; line-height: 1.6; margin-bottom: 0; border-top: 1px solid #f0f2f5; padding-top: 20px; text-align: center;">
+        <p style="font-family: 'Montserrat', sans-serif; font-size: 12px; color: #8d9199; font-style: italic; line-height: 1.6; margin-bottom: 0; border-top: 1px solid #dee3eb; padding-top: 20px; text-align: center;">
           *This is an automated confirmation receipt. Please do not reply directly to this email, as this address is unmonitored. For any immediate assistance, feel free to contact us through our official channels.
         </p>
       `,
