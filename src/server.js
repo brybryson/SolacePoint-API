@@ -261,7 +261,7 @@ app.post('/api/contact', async (req, res) => {
       true
     );
 
-    await safeSendEmail({
+    safeSendEmail({
       from: 'Solace Point Intake',
       to: INTERNAL_ALERT_RECIPIENT,
       subject: `[Lead #${leadId}] New Contact Submission: ${name}`,
@@ -291,7 +291,7 @@ app.post('/api/contact', async (req, res) => {
       false
     );
 
-    await safeSendEmail({
+    safeSendEmail({
       from: 'Solace Point',
       to: email,
       subject: 'Thank You for Reaching Out - Solace Point',
@@ -406,7 +406,7 @@ app.post('/api/quote', async (req, res) => {
       true
     );
 
-    await safeSendEmail({
+    safeSendEmail({
       from: 'Solace Point Intake',
       to: INTERNAL_ALERT_RECIPIENT,
       subject: `[Quote #${quoteId}] New Portfolio Review: ${name}`,
@@ -436,7 +436,7 @@ app.post('/api/quote', async (req, res) => {
       false
     );
 
-    await safeSendEmail({
+    safeSendEmail({
       from: 'Solace Point',
       to: email,
       subject: 'Your Insurance Portfolio Review is Underway - Solace Point',
@@ -519,7 +519,7 @@ app.post('/api/advisory', async (req, res) => {
       true
     );
 
-    await safeSendEmail({
+    safeSendEmail({
       from: 'Solace Point Intake',
       to: INTERNAL_ALERT_RECIPIENT,
       subject: `[Advisory #${advisoryId}] Consultation Request: ${name}`,
@@ -549,7 +549,7 @@ app.post('/api/advisory', async (req, res) => {
       false
     );
 
-    await safeSendEmail({
+    safeSendEmail({
       from: 'Solace Point',
       to: email,
       subject: 'Consultation Request Confirmed - Solace Point',
@@ -634,7 +634,7 @@ app.post('/api/newsletter', async (req, res) => {
       true
     );
 
-    await safeSendEmail({
+    safeSendEmail({
       from: 'Solace Point Circle',
       to: INTERNAL_ALERT_RECIPIENT,
       subject: `[Subscriber #${subscriberId}] New Newsletter Join: ${email}`,
@@ -664,7 +664,7 @@ app.post('/api/newsletter', async (req, res) => {
       false
     );
 
-    await safeSendEmail({
+    safeSendEmail({
       from: 'Solace Point',
       to: email,
       subject: 'Welcome to the Circle - Solace Point',
