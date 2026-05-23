@@ -221,47 +221,42 @@ app.post('/api/contact', async (req, res) => {
       'New Contact Lead',
       `Reference #${leadId}`,
       `
-        <table style="width: 100%; border-collapse: collapse;">
-          <tr>
-            <!-- Left Column: Context & Message -->
-            <td style="width: 50%; vertical-align: top; padding-right: 40px;">
-              <h3 style="font-family: 'Montserrat', sans-serif; color: #1E3F62; font-size: 20px; font-weight: 800; margin-top: 0; margin-bottom: 18px; letter-spacing: -0.02em;">Inquiry Overview</h3>
-              <p style="font-family: 'Montserrat', sans-serif; font-size: 14.5px; color: #43474e; line-height: 1.8; margin-bottom: 28px; font-weight: 400;">A client has submitted an online inquiry. Our brand promise commits to securing absolute resolution for every contact within 24 hours.</p>
-              
-              <p style="margin: 0 0 10px 0; font-family: 'Montserrat', sans-serif; font-size: 11px; font-weight: 800; color: #1E3F62; text-transform: uppercase; letter-spacing: 0.1em;">Client Message:</p>
-              <div style="background-color: #fbf9fa; border: 1px solid #dee3eb; padding: 25px; border-left: 4px solid #DDB959; font-style: italic; border-radius: 8px; line-height: 1.8; color: #2c3e50; font-size: 14.5px; font-family: 'Montserrat', sans-serif; font-weight: 400;">
-                "${message.replace(/\n/g, '<br/>')}"
-              </div>
-              <p style="font-family: 'Montserrat', sans-serif; font-size: 13px; font-weight: 500; color: #7f8c8d; line-height: 1.7; margin-top: 30px; margin-bottom: 0;">Please execute a professional follow-up call with the client inside the standard 24-hour response window.</p>
-            </td>
-            
-            <!-- Right Column: Structured Table Card -->
-            <td style="width: 50%; vertical-align: top; padding-left: 40px; border-left: 1px solid #dee3eb;">
-              <div style="border: 1px solid #eef2f6; border-radius: 16px; padding: 35px; background-color: #fbf9fa; box-shadow: 0 4px 20px rgba(0, 0, 0, 0.02);">
-                <h3 style="font-family: 'Montserrat', sans-serif; color: #1E3F62; font-size: 12px; text-transform: uppercase; letter-spacing: 0.15em; margin-top: 0; margin-bottom: 20px; border-bottom: 2px solid #dee3eb; padding-bottom: 12px; font-weight: 800;">Submission Details</h3>
-                
-                <table style="width: 100%; border-collapse: collapse; font-family: 'Montserrat', sans-serif; font-size: 13.5px; color: #43474e;">
-                  <tr>
-                    <td style="padding: 14px 0; font-weight: 700; width: 40%; border-bottom: 1px solid #dee3eb;">Lead ID:</td>
-                    <td style="padding: 14px 0; border-bottom: 1px solid #dee3eb; color: #AF7F2A; font-weight: 800;">#${leadId}</td>
-                  </tr>
-                  <tr>
-                    <td style="padding: 14px 0; font-weight: 700; border-bottom: 1px solid #dee3eb;">Client Name:</td>
-                    <td style="padding: 14px 0; border-bottom: 1px solid #dee3eb; color: #1E3F62; font-weight: 600;">${name}</td>
-                  </tr>
-                  <tr>
-                    <td style="padding: 14px 0; font-weight: 700; border-bottom: 1px solid #dee3eb;">Email Address:</td>
-                    <td style="padding: 14px 0; border-bottom: 1px solid #dee3eb; color: #1E3F62; font-weight: 500;">${email}</td>
-                  </tr>
-                  <tr>
-                    <td style="padding: 14px 0; font-weight: 700; border-bottom: 1px solid #dee3eb;">Source Portal:</td>
-                    <td style="padding: 14px 0; border-bottom: 1px solid #dee3eb; font-weight: 500;">Web Form (/contact)</td>
-                  </tr>
-                </table>
-              </div>
-            </td>
-          </tr>
-        </table>
+        <div style="text-align: center; max-width: 650px; margin: 0 auto; padding: 20px 0;">
+          <h2 style="font-family: 'Montserrat', sans-serif; color: #1E3F62; font-weight: 800; font-size: 26px; margin-top: 0; margin-bottom: 15px; letter-spacing: -0.02em;">New Contact Lead</h2>
+          <p style="font-family: 'Montserrat', sans-serif; font-size: 11px; font-weight: 700; text-transform: uppercase; color: #DDB959; letter-spacing: 0.2em; margin-bottom: 30px;">Reference #${leadId}</p>
+          
+          <hr style="border: 0; border-top: 2px solid #DDB959; width: 50px; margin: 0 auto 35px auto;" />
+          
+          <p style="font-family: 'Montserrat', sans-serif; font-size: 15px; color: #43474e; line-height: 1.8; margin-bottom: 30px; font-weight: 400; text-align: left;">A client has submitted an inquiry. The lead specifications are compiled below:</p>
+          
+          <table style="width: 100%; border-collapse: collapse; font-family: 'Montserrat', sans-serif; font-size: 13.5px; color: #43474e; margin-bottom: 35px;">
+            <tr style="border-bottom: 1px solid #eef2f6;">
+              <td style="padding: 14px 10px; font-weight: 700; text-align: left; width: 35%;">Lead ID:</td>
+              <td style="padding: 14px 10px; text-align: right; color: #AF7F2A; font-weight: 800;">#${leadId}</td>
+            </tr>
+            <tr style="border-bottom: 1px solid #eef2f6;">
+              <td style="padding: 14px 10px; font-weight: 700; text-align: left;">Client Name:</td>
+              <td style="padding: 14px 10px; text-align: right; color: #1E3F62; font-weight: 600;">${name}</td>
+            </tr>
+            <tr style="border-bottom: 1px solid #eef2f6;">
+              <td style="padding: 14px 10px; font-weight: 700; text-align: left;">Email Address:</td>
+              <td style="padding: 14px 10px; text-align: right; color: #1E3F62; font-weight: 500;">${email}</td>
+            </tr>
+            <tr style="border-bottom: 1px solid #eef2f6;">
+              <td style="padding: 14px 10px; font-weight: 700; text-align: left;">Source Portal:</td>
+              <td style="padding: 14px 10px; text-align: right; font-weight: 500;">Web Form (/contact)</td>
+            </tr>
+          </table>
+          
+          <p style="margin: 0 0 10px 0; font-family: 'Montserrat', sans-serif; font-size: 11px; font-weight: 800; color: #1E3F62; text-transform: uppercase; letter-spacing: 0.1em; text-align: left;">Client Message:</p>
+          <div style="background-color: #fbf9fa; border: 1px solid #dee3eb; padding: 25px; border-left: 4px solid #DDB959; font-style: italic; border-radius: 8px; line-height: 1.8; color: #2c3e50; font-size: 14.5px; font-family: 'Montserrat', sans-serif; font-weight: 400; text-align: left; margin-bottom: 35px;">
+            "${message.replace(/\n/g, '<br/>')}"
+          </div>
+          
+          <p style="font-family: 'Montserrat', sans-serif; font-size: 12px; color: #7f8c8d; line-height: 1.8; margin-bottom: 0; border-top: 1px solid #dee3eb; padding-top: 25px; text-align: center; font-weight: 500;">
+            *Please execute a professional follow-up call within the standard 24-hour response window.
+          </p>
+        </div>
       `,
       true
     );
@@ -359,59 +354,54 @@ app.post('/api/quote', async (req, res) => {
       'New Quote Request',
       `Reference #${quoteId}`,
       `
-        <table style="width: 100%; border-collapse: collapse;">
-          <tr>
-            <!-- Left Column: Context & Specifications -->
-            <td style="width: 45%; vertical-align: top; padding-right: 40px;">
-              <h3 style="font-family: 'Montserrat', sans-serif; color: #1E3F62; font-size: 20px; font-weight: 800; margin-top: 0; margin-bottom: 18px; letter-spacing: -0.02em;">Quote Overview</h3>
-              <p style="font-family: 'Montserrat', sans-serif; font-size: 14.5px; color: #43474e; line-height: 1.8; margin-bottom: 28px; font-weight: 400;">A client has requested a custom non-life insurance portfolio review. Our team of risk architects is tasked with compiling optimized rates across our premium network.</p>
-              
-              <p style="margin: 0 0 10px 0; font-family: 'Montserrat', sans-serif; font-size: 11px; font-weight: 800; color: #1E3F62; text-transform: uppercase; letter-spacing: 0.1em;">Coverage Specifications:</p>
-              <div style="background-color: #fbf9fa; border: 1px solid #dee3eb; padding: 25px; border-left: 4px solid #DDB959; font-style: italic; border-radius: 8px; line-height: 1.8; color: #2c3e50; font-size: 14.5px; font-family: 'Montserrat', sans-serif; font-weight: 400;">
-                "${details ? details.replace(/\n/g, '<br/>') : 'None provided'}"
-              </div>
-              <p style="font-family: 'Montserrat', sans-serif; font-size: 13px; font-weight: 500; color: #7f8c8d; line-height: 1.7; margin-top: 30px; margin-bottom: 0;">Please compile rate proposals and contact the client immediately to deliver their portfolio review.</p>
-            </td>
-            
-            <!-- Right Column: Structured Table Card -->
-            <td style="width: 55%; vertical-align: top; padding-left: 40px; border-left: 1px solid #dee3eb;">
-              <div style="border: 1px solid #eef2f6; border-radius: 16px; padding: 35px; background-color: #fbf9fa; box-shadow: 0 4px 20px rgba(0, 0, 0, 0.02);">
-                <h3 style="font-family: 'Montserrat', sans-serif; color: #1E3F62; font-size: 12px; text-transform: uppercase; letter-spacing: 0.15em; margin-top: 0; margin-bottom: 20px; border-bottom: 2px solid #dee3eb; padding-bottom: 12px; font-weight: 800;">Submission Details</h3>
-                
-                <table style="width: 100%; border-collapse: collapse; font-family: 'Montserrat', sans-serif; font-size: 13.5px; color: #43474e;">
-                  <tr>
-                    <td style="padding: 14px 0; font-weight: 700; width: 40%; border-bottom: 1px solid #dee3eb;">Quote ID:</td>
-                    <td style="padding: 14px 0; border-bottom: 1px solid #dee3eb; color: #AF7F2A; font-weight: 800;">#${quoteId}</td>
-                  </tr>
-                  <tr>
-                    <td style="padding: 14px 0; font-weight: 700; border-bottom: 1px solid #dee3eb;">Client Name:</td>
-                    <td style="padding: 14px 0; border-bottom: 1px solid #dee3eb; color: #1E3F62; font-weight: 600;">${name}</td>
-                  </tr>
-                  <tr>
-                    <td style="padding: 14px 0; font-weight: 700; border-bottom: 1px solid #dee3eb;">Email Address:</td>
-                    <td style="padding: 14px 0; border-bottom: 1px solid #dee3eb; color: #1E3F62; font-weight: 500;">${email}</td>
-                  </tr>
-                  <tr>
-                    <td style="padding: 14px 0; font-weight: 700; border-bottom: 1px solid #dee3eb;">Phone Number:</td>
-                    <td style="padding: 14px 0; border-bottom: 1px solid #dee3eb; color: #1E3F62; font-weight: 500;">${phone}</td>
-                  </tr>
-                  <tr>
-                    <td style="padding: 14px 0; font-weight: 700; border-bottom: 1px solid #dee3eb;">Insurance Type:</td>
-                    <td style="padding: 14px 0; border-bottom: 1px solid #dee3eb; text-transform: capitalize; color: #1E3F62; font-weight: 500;">${insuranceType} ${otherInsuranceType ? `(${otherInsuranceType})` : ''}</td>
-                  </tr>
-                  <tr>
-                    <td style="padding: 14px 0; font-weight: 700; border-bottom: 1px solid #dee3eb;">Property Type:</td>
-                    <td style="padding: 14px 0; border-bottom: 1px solid #dee3eb; text-transform: capitalize; color: #1E3F62; font-weight: 500;">${propertyType} ${otherPropertyType ? `(${otherPropertyType})` : ''}</td>
-                  </tr>
-                  <tr>
-                    <td style="padding: 14px 0; font-weight: 700; border-bottom: 1px solid #dee3eb;">Estimated Amount:</td>
-                    <td style="padding: 14px 0; color: #AF7F2A; font-weight: 800; border-bottom: 1px solid #dee3eb;">₱${parseFloat(estimatedAmount).toLocaleString('en-US', { minimumFractionDigits: 2 })}</td>
-                  </tr>
-                </table>
-              </div>
-            </td>
-          </tr>
-        </table>
+        <div style="text-align: center; max-width: 650px; margin: 0 auto; padding: 20px 0;">
+          <h2 style="font-family: 'Montserrat', sans-serif; color: #1E3F62; font-weight: 800; font-size: 26px; margin-top: 0; margin-bottom: 15px; letter-spacing: -0.02em;">New Quote Request</h2>
+          <p style="font-family: 'Montserrat', sans-serif; font-size: 11px; font-weight: 700; text-transform: uppercase; color: #DDB959; letter-spacing: 0.2em; margin-bottom: 30px;">Reference #${quoteId}</p>
+          
+          <hr style="border: 0; border-top: 2px solid #DDB959; width: 50px; margin: 0 auto 35px auto;" />
+          
+          <p style="font-family: 'Montserrat', sans-serif; font-size: 15px; color: #43474e; line-height: 1.8; margin-bottom: 30px; font-weight: 400; text-align: left;">A client has requested a custom non-life insurance portfolio review. The lead specifications are compiled below:</p>
+          
+          <table style="width: 100%; border-collapse: collapse; font-family: 'Montserrat', sans-serif; font-size: 13.5px; color: #43474e; margin-bottom: 35px;">
+            <tr style="border-bottom: 1px solid #eef2f6;">
+              <td style="padding: 14px 10px; font-weight: 700; text-align: left; width: 35%;">Quote ID:</td>
+              <td style="padding: 14px 10px; text-align: right; color: #AF7F2A; font-weight: 800;">#${quoteId}</td>
+            </tr>
+            <tr style="border-bottom: 1px solid #eef2f6;">
+              <td style="padding: 14px 10px; font-weight: 700; text-align: left;">Client Name:</td>
+              <td style="padding: 14px 10px; text-align: right; color: #1E3F62; font-weight: 600;">${name}</td>
+            </tr>
+            <tr style="border-bottom: 1px solid #eef2f6;">
+              <td style="padding: 14px 10px; font-weight: 700; text-align: left;">Email Address:</td>
+              <td style="padding: 14px 10px; text-align: right; color: #1E3F62; font-weight: 500;">${email}</td>
+            </tr>
+            <tr style="border-bottom: 1px solid #eef2f6;">
+              <td style="padding: 14px 10px; font-weight: 700; text-align: left;">Phone Number:</td>
+              <td style="padding: 14px 10px; text-align: right; color: #1E3F62; font-weight: 500;">${phone}</td>
+            </tr>
+            <tr style="border-bottom: 1px solid #eef2f6;">
+              <td style="padding: 14px 10px; font-weight: 700; text-align: left;">Insurance Type:</td>
+              <td style="padding: 14px 10px; text-align: right; color: #1E3F62; font-weight: 500; text-transform: capitalize;">${insuranceType} ${otherInsuranceType ? `(${otherInsuranceType})` : ''}</td>
+            </tr>
+            <tr style="border-bottom: 1px solid #eef2f6;">
+              <td style="padding: 14px 10px; font-weight: 700; text-align: left;">Property Type:</td>
+              <td style="padding: 14px 10px; text-align: right; color: #1E3F62; font-weight: 500; text-transform: capitalize;">${propertyType} ${otherPropertyType ? `(${otherPropertyType})` : ''}</td>
+            </tr>
+            <tr style="border-bottom: 1px solid #eef2f6;">
+              <td style="padding: 14px 10px; font-weight: 700; text-align: left;">Estimated Amount:</td>
+              <td style="padding: 14px 10px; text-align: right; color: #AF7F2A; font-weight: 800;">₱${parseFloat(estimatedAmount).toLocaleString('en-US', { minimumFractionDigits: 2 })}</td>
+            </tr>
+          </table>
+          
+          <p style="margin: 0 0 10px 0; font-family: 'Montserrat', sans-serif; font-size: 11px; font-weight: 800; color: #1E3F62; text-transform: uppercase; letter-spacing: 0.1em; text-align: left;">Coverage Specifications:</p>
+          <div style="background-color: #fbf9fa; border: 1px solid #dee3eb; padding: 25px; border-left: 4px solid #DDB959; font-style: italic; border-radius: 8px; line-height: 1.8; color: #2c3e50; font-size: 14.5px; font-family: 'Montserrat', sans-serif; font-weight: 400; text-align: left; margin-bottom: 35px;">
+            "${details ? details.replace(/\n/g, '<br/>') : 'None provided'}"
+          </div>
+          
+          <p style="font-family: 'Montserrat', sans-serif; font-size: 12px; color: #7f8c8d; line-height: 1.8; margin-bottom: 0; border-top: 1px solid #dee3eb; padding-top: 25px; text-align: center; font-weight: 500;">
+            *Please compile rate proposals and contact the client immediately to deliver their portfolio review.
+          </p>
+        </div>
       `,
       true
     );
@@ -489,47 +479,42 @@ app.post('/api/advisory', async (req, res) => {
       'New Consultation Request',
       `Reference #${advisoryId}`,
       `
-        <table style="width: 100%; border-collapse: collapse;">
-          <tr>
-            <!-- Left Column: Context & Details -->
-            <td style="width: 50%; vertical-align: top; padding-right: 40px;">
-              <h3 style="font-family: 'Montserrat', sans-serif; color: #1E3F62; font-size: 20px; font-weight: 800; margin-top: 0; margin-bottom: 18px; letter-spacing: -0.02em;">Consultation Overview</h3>
-              <p style="font-family: 'Montserrat', sans-serif; font-size: 14.5px; color: #43474e; line-height: 1.8; margin-bottom: 28px; font-weight: 400;">A client has requested a personal strategic consultation with an advisor. They are seeking architectural non-life solutions to shield their assets.</p>
-              
-              <p style="margin: 0 0 10px 0; font-family: 'Montserrat', sans-serif; font-size: 11px; font-weight: 800; color: #1E3F62; text-transform: uppercase; letter-spacing: 0.1em;">Consultation Goals:</p>
-              <div style="background-color: #fbf9fa; border: 1px solid #dee3eb; padding: 25px; border-left: 4px solid #DDB959; font-style: italic; border-radius: 8px; line-height: 1.8; color: #2c3e50; font-size: 14.5px; font-family: 'Montserrat', sans-serif; font-weight: 400;">
-                "${details.replace(/\n/g, '<br/>')}"
-              </div>
-              <p style="font-family: 'Montserrat', sans-serif; font-size: 13px; font-weight: 500; color: #7f8c8d; line-height: 1.7; margin-top: 30px; margin-bottom: 0;">Please assign a specialist in our <strong>${interest}</strong> division and schedule a brief advisory call.</p>
-            </td>
-            
-            <!-- Right Column: Structured Table Card -->
-            <td style="width: 50%; vertical-align: top; padding-left: 40px; border-left: 1px solid #dee3eb;">
-              <div style="border: 1px solid #eef2f6; border-radius: 16px; padding: 35px; background-color: #fbf9fa; box-shadow: 0 4px 20px rgba(0, 0, 0, 0.02);">
-                <h3 style="font-family: 'Montserrat', sans-serif; color: #1E3F62; font-size: 12px; text-transform: uppercase; letter-spacing: 0.15em; margin-top: 0; margin-bottom: 20px; border-bottom: 2px solid #dee3eb; padding-bottom: 12px; font-weight: 800;">Submission Details</h3>
-                
-                <table style="width: 100%; border-collapse: collapse; font-family: 'Montserrat', sans-serif; font-size: 13.5px; color: #43474e;">
-                  <tr>
-                    <td style="padding: 14px 0; font-weight: 700; width: 40%; border-bottom: 1px solid #dee3eb;">Consultation ID:</td>
-                    <td style="padding: 14px 0; border-bottom: 1px solid #dee3eb; color: #AF7F2A; font-weight: 800;">#${advisoryId}</td>
-                  </tr>
-                  <tr>
-                    <td style="padding: 14px 0; font-weight: 700; border-bottom: 1px solid #dee3eb;">Client Name:</td>
-                    <td style="padding: 14px 0; border-bottom: 1px solid #dee3eb; color: #1E3F62; font-weight: 600;">${name}</td>
-                  </tr>
-                  <tr>
-                    <td style="padding: 14px 0; font-weight: 700; border-bottom: 1px solid #dee3eb;">Email Address:</td>
-                    <td style="padding: 14px 0; border-bottom: 1px solid #dee3eb; color: #1E3F62; font-weight: 500;">${email}</td>
-                  </tr>
-                  <tr>
-                    <td style="padding: 14px 0; font-weight: 700; border-bottom: 1px solid #dee3eb;">Area of Interest:</td>
-                    <td style="padding: 14px 0; border-bottom: 1px solid #dee3eb; text-transform: capitalize; color: #1E3F62; font-weight: 600;">${interest}</td>
-                  </tr>
-                </table>
-              </div>
-            </td>
-          </tr>
-        </table>
+        <div style="text-align: center; max-width: 650px; margin: 0 auto; padding: 20px 0;">
+          <h2 style="font-family: 'Montserrat', sans-serif; color: #1E3F62; font-weight: 800; font-size: 26px; margin-top: 0; margin-bottom: 15px; letter-spacing: -0.02em;">New Consultation Request</h2>
+          <p style="font-family: 'Montserrat', sans-serif; font-size: 11px; font-weight: 700; text-transform: uppercase; color: #DDB959; letter-spacing: 0.2em; margin-bottom: 30px;">Reference #${advisoryId}</p>
+          
+          <hr style="border: 0; border-top: 2px solid #DDB959; width: 50px; margin: 0 auto 35px auto;" />
+          
+          <p style="font-family: 'Montserrat', sans-serif; font-size: 15px; color: #43474e; line-height: 1.8; margin-bottom: 30px; font-weight: 400; text-align: left;">A client has requested a personal strategic consultation with an advisor. The lead specifications are compiled below:</p>
+          
+          <table style="width: 100%; border-collapse: collapse; font-family: 'Montserrat', sans-serif; font-size: 13.5px; color: #43474e; margin-bottom: 35px;">
+            <tr style="border-bottom: 1px solid #eef2f6;">
+              <td style="padding: 14px 10px; font-weight: 700; text-align: left; width: 35%;">Consultation ID:</td>
+              <td style="padding: 14px 10px; text-align: right; color: #AF7F2A; font-weight: 800;">#${advisoryId}</td>
+            </tr>
+            <tr style="border-bottom: 1px solid #eef2f6;">
+              <td style="padding: 14px 10px; font-weight: 700; text-align: left;">Client Name:</td>
+              <td style="padding: 14px 10px; text-align: right; color: #1E3F62; font-weight: 600;">${name}</td>
+            </tr>
+            <tr style="border-bottom: 1px solid #eef2f6;">
+              <td style="padding: 14px 10px; font-weight: 700; text-align: left;">Email Address:</td>
+              <td style="padding: 14px 10px; text-align: right; color: #1E3F62; font-weight: 500;">${email}</td>
+            </tr>
+            <tr style="border-bottom: 1px solid #eef2f6;">
+              <td style="padding: 14px 10px; font-weight: 700; text-align: left;">Area of Interest:</td>
+              <td style="padding: 14px 10px; text-align: right; color: #1E3F62; font-weight: 600; text-transform: capitalize;">${interest}</td>
+            </tr>
+          </table>
+          
+          <p style="margin: 0 0 10px 0; font-family: 'Montserrat', sans-serif; font-size: 11px; font-weight: 800; color: #1E3F62; text-transform: uppercase; letter-spacing: 0.1em; text-align: left;">Consultation Goals:</p>
+          <div style="background-color: #fbf9fa; border: 1px solid #dee3eb; padding: 25px; border-left: 4px solid #DDB959; font-style: italic; border-radius: 8px; line-height: 1.8; color: #2c3e50; font-size: 14.5px; font-family: 'Montserrat', sans-serif; font-weight: 400; text-align: left; margin-bottom: 35px;">
+            "${details.replace(/\n/g, '<br/>')}"
+          </div>
+          
+          <p style="font-family: 'Montserrat', sans-serif; font-size: 12px; color: #7f8c8d; line-height: 1.8; margin-bottom: 0; border-top: 1px solid #dee3eb; padding-top: 25px; text-align: center; font-weight: 500;">
+            *Please assign a specialist in our ${interest} division and schedule a brief advisory call.
+          </p>
+        </div>
       `,
       true
     );
@@ -614,45 +599,37 @@ app.post('/api/newsletter', async (req, res) => {
       'New Circle Subscriber',
       `Reference #${subscriberId}`,
       `
-        <table style="width: 100%; border-collapse: collapse;">
-          <tr>
-            <!-- Left Column: Context -->
-            <td style="width: 50%; vertical-align: top; padding-right: 40px;">
-              <h3 style="font-family: 'Montserrat', sans-serif; color: #1E3F62; font-size: 20px; font-weight: 800; margin-top: 0; margin-bottom: 18px; letter-spacing: -0.02em;">Circle Subscription</h3>
-              <p style="font-family: 'Montserrat', sans-serif; font-size: 14.5px; color: #43474e; line-height: 1.8; margin-bottom: 28px; font-weight: 400;">A new reader has joined the Solace Point newsletter list to keep pace with modern asset preservation guidelines.</p>
-              
-              <div style="background-color: #fbf9fa; border: 1px dashed #DDB959; padding: 25px; border-radius: 12px; font-size: 14px; color: #43474e; line-height: 1.8; margin-top: 30px; font-family: 'Montserrat', sans-serif; font-weight: 400;">
-                <strong>Welcome Protocol Complete:</strong> The subscriber is now configured to receive automated risk reports, non-life industry newsletters, and quarterly advisory briefs.
-              </div>
-            </td>
-            
-            <!-- Right Column: Structured Table Card -->
-            <td style="width: 50%; vertical-align: top; padding-left: 40px; border-left: 1px solid #dee3eb;">
-              <div style="border: 1px solid #eef2f6; border-radius: 16px; padding: 35px; background-color: #fbf9fa; box-shadow: 0 4px 20px rgba(0, 0, 0, 0.02);">
-                <h3 style="font-family: 'Montserrat', sans-serif; color: #1E3F62; font-size: 12px; text-transform: uppercase; letter-spacing: 0.15em; margin-top: 0; margin-bottom: 20px; border-bottom: 2px solid #dee3eb; padding-bottom: 12px; font-weight: 800;">Subscriber Details</h3>
-                
-                <table style="width: 100%; border-collapse: collapse; font-family: 'Montserrat', sans-serif; font-size: 13.5px; color: #43474e;">
-                  <tr>
-                    <td style="padding: 14px 0; font-weight: 700; width: 45%; border-bottom: 1px solid #dee3eb;">Subscriber ID:</td>
-                    <td style="padding: 14px 0; border-bottom: 1px solid #dee3eb; color: #AF7F2A; font-weight: 800;">#${subscriberId}</td>
-                  </tr>
-                  <tr>
-                    <td style="padding: 14px 0; font-weight: 700; border-bottom: 1px solid #dee3eb;">Email Address:</td>
-                    <td style="padding: 14px 0; border-bottom: 1px solid #dee3eb; color: #1E3F62; font-weight: 500;">${email}</td>
-                  </tr>
-                  <tr>
-                    <td style="padding: 14px 0; font-weight: 700; border-bottom: 1px solid #dee3eb;">Status:</td>
-                    <td style="padding: 14px 0; border-bottom: 1px solid #dee3eb;"><span style="background-color: #e6f4ea; color: #137333; padding: 4px 12px; border-radius: 12px; font-size: 11px; font-weight: 800; text-transform: uppercase; letter-spacing: 0.05em; display: inline-block;">Active</span></td>
-                  </tr>
-                  <tr>
-                    <td style="padding: 14px 0; font-weight: 700; border-bottom: 1px solid #dee3eb;">Joined Date:</td>
-                    <td style="padding: 14px 0; border-bottom: 1px solid #dee3eb; font-weight: 500;">${new Date().toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}</td>
-                  </tr>
-                </table>
-              </div>
-            </td>
-          </tr>
-        </table>
+        <div style="text-align: center; max-width: 650px; margin: 0 auto; padding: 20px 0;">
+          <h2 style="font-family: 'Montserrat', sans-serif; color: #1E3F62; font-weight: 800; font-size: 26px; margin-top: 0; margin-bottom: 15px; letter-spacing: -0.02em;">New Circle Subscriber</h2>
+          <p style="font-family: 'Montserrat', sans-serif; font-size: 11px; font-weight: 700; text-transform: uppercase; color: #DDB959; letter-spacing: 0.2em; margin-bottom: 30px;">Reference #${subscriberId}</p>
+          
+          <hr style="border: 0; border-top: 2px solid #DDB959; width: 50px; margin: 0 auto 35px auto;" />
+          
+          <p style="font-family: 'Montserrat', sans-serif; font-size: 15px; color: #43474e; line-height: 1.8; margin-bottom: 30px; font-weight: 400; text-align: left;">A new reader has joined the Solace Point newsletter list. The subscriber specifications are compiled below:</p>
+          
+          <table style="width: 100%; border-collapse: collapse; font-family: 'Montserrat', sans-serif; font-size: 13.5px; color: #43474e; margin-bottom: 35px;">
+            <tr style="border-bottom: 1px solid #eef2f6;">
+              <td style="padding: 14px 10px; font-weight: 700; text-align: left; width: 35%;">Subscriber ID:</td>
+              <td style="padding: 14px 10px; text-align: right; color: #AF7F2A; font-weight: 800;">#${subscriberId}</td>
+            </tr>
+            <tr style="border-bottom: 1px solid #eef2f6;">
+              <td style="padding: 14px 10px; font-weight: 700; text-align: left;">Email Address:</td>
+              <td style="padding: 14px 10px; text-align: right; color: #1E3F62; font-weight: 500;">${email}</td>
+            </tr>
+            <tr style="border-bottom: 1px solid #eef2f6;">
+              <td style="padding: 14px 10px; font-weight: 700; text-align: left;">Status:</td>
+              <td style="padding: 14px 10px; text-align: right; color: #137333; font-weight: 700; font-size: 13.5px;">Active</td>
+            </tr>
+            <tr style="border-bottom: 1px solid #eef2f6;">
+              <td style="padding: 14px 10px; font-weight: 700; text-align: left;">Joined Date:</td>
+              <td style="padding: 14px 10px; text-align: right; font-weight: 500;">${new Date().toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}</td>
+            </tr>
+          </table>
+          
+          <p style="font-family: 'Montserrat', sans-serif; font-size: 12px; color: #7f8c8d; line-height: 1.8; margin-bottom: 0; border-top: 1px solid #dee3eb; padding-top: 25px; text-align: center; font-weight: 500;">
+            *This subscriber is now active and will receive curated risk reports, newsletters, and advisory briefs. Registry synchronized with Supabase.
+          </p>
+        </div>
       `,
       true
     );
