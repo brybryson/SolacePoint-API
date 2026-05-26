@@ -53,10 +53,10 @@ if (process.env.GMAIL_USER && process.env.GMAIL_CLIENT_ID && process.env.GMAIL_C
   console.warn('⚠️ WARNING: GMAIL OAuth2 configuration variables are missing in .env. Email notifications will be skipped.');
 }
 
-// Helper to format dates cleanly into "Month Day, Year Hour:Minute AM/PM" (e.g. "May 26, 2026 12:42 PM")
+// Helper to format dates cleanly into "Month Day, Year Hour:Minute AM/PM" (e.g. "May 26, 2026 12:42 PM") in GMT+8 (PHT)
 function formatDateTime(date = new Date()) {
-  const optionsDate = { year: 'numeric', month: 'long', day: 'numeric' };
-  const optionsTime = { hour: 'numeric', minute: '2-digit', hour12: true };
+  const optionsDate = { year: 'numeric', month: 'long', day: 'numeric', timeZone: 'Asia/Manila' };
+  const optionsTime = { hour: 'numeric', minute: '2-digit', hour12: true, timeZone: 'Asia/Manila' };
   const dateStr = date.toLocaleDateString('en-US', optionsDate);
   const timeStr = date.toLocaleTimeString('en-US', optionsTime);
   return `${dateStr} ${timeStr}`;
