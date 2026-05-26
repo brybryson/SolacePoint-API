@@ -1,6 +1,6 @@
 const express = require('express');
 const cors = require('cors');
-const nodemailer = require('nodemailer');
+const MailComposer = require('nodemailer/lib/mail-composer');
 const db = require('./db');
 require('dotenv').config();
 
@@ -16,22 +16,41 @@ app.use(cors({
 
 app.use(express.json());
 
-// Initialize Nodemailer Gmail transporter
-let mailTransporter;
-const gmailUser = process.env.GMAIL_USER;
-const gmailAppPassword = process.env.GMAIL_APP_PASSWORD;
+// Helper to get fresh Gmail Access Token using OAuth2 Refresh Token
+async function getGmailAccessToken() {
+  const clientId = process.env.GMAIL_CLIENT_ID;
+  const clientSecret = process.env.GMAIL_CLIENT_SECRET;
+  const refreshToken = process.env.GMAIL_REFRESH_TOKEN;
 
-if (gmailUser && gmailAppPassword) {
-  mailTransporter = nodemailer.createTransport({
-    service: 'gmail',
-    auth: {
-      user: gmailUser,
-      pass: gmailAppPassword
-    }
+  if (!clientId || !clientSecret || !refreshToken) {
+    throw new Error('Missing GMAIL OAuth2 configuration variables (CLIENT_ID, CLIENT_SECRET, or REFRESH_TOKEN) in .env.');
+  }
+
+  const response = await fetch('https://oauth2.googleapis.com/token', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+    body: new URLSearchParams({
+      client_id: clientId,
+      client_secret: clientSecret,
+      refresh_token: refreshToken,
+      grant_type: 'refresh_token'
+    })
   });
-  console.log('📬 Nodemailer Gmail Transporter initialized successfully.');
+
+  const data = await response.json();
+
+  if (data.error) {
+    throw new Error(`Failed to refresh Gmail Access Token: ${data.error_description || data.error}`);
+  }
+
+  return data.access_token;
+}
+
+// Log status on startup
+if (process.env.GMAIL_USER && process.env.GMAIL_CLIENT_ID && process.env.GMAIL_CLIENT_SECRET && process.env.GMAIL_REFRESH_TOKEN) {
+  console.log('📬 Gmail REST API (over HTTPS) Client initialized successfully.');
 } else {
-  console.warn('⚠️ WARNING: GMAIL_USER or GMAIL_APP_PASSWORD is missing in .env. Email notifications will be skipped.');
+  console.warn('⚠️ WARNING: GMAIL OAuth2 configuration variables are missing in .env. Email notifications will be skipped.');
 }
 
 // Centralized configurations
@@ -146,27 +165,67 @@ function buildHtmlTemplate(title, subtitle, contentHtml, isAlert = false) {
   `;
 }
 
-// Helper to send emails defensively via Nodemailer (Gmail SMTP)
+// Helper to send emails defensively via Gmail REST API (over HTTPS)
 async function safeSendEmail(emailPayload) {
-  if (!mailTransporter) {
-    console.log('✉️ Email send skipped (No valid Gmail SMTP configured):', emailPayload.subject);
+  const gmailUser = process.env.GMAIL_USER;
+  
+  if (!gmailUser || !process.env.GMAIL_CLIENT_ID || !process.env.GMAIL_CLIENT_SECRET || !process.env.GMAIL_REFRESH_TOKEN) {
+    console.warn('✉️ Email send skipped (Missing GMAIL OAuth2 configurations in .env):', emailPayload.subject);
     return null;
   }
 
   try {
-    const mailOptions = {
-      from: `"${emailPayload.from}" <${process.env.GMAIL_USER}>`,
+    // 1. Compile the email using MailComposer to get RFC 2822 MIME format
+    const mail = new MailComposer({
+      from: `"${emailPayload.from}" <${gmailUser}>`,
       to: emailPayload.to,
       subject: emailPayload.subject,
       html: emailPayload.html,
       replyTo: REPLY_TO_EMAIL
-    };
+    });
 
-    const info = await mailTransporter.sendMail(mailOptions);
-    console.log('✉️ Email sent successfully:', emailPayload.subject, 'Message ID:', info.messageId);
-    return info;
+    // Build the raw message as a buffer
+    const messageBuffer = await new Promise((resolve, reject) => {
+      mail.compile().build((err, message) => {
+        if (err) reject(err);
+        else resolve(message);
+      });
+    });
+
+    // 2. Base64url encode the raw RFC 2822 email string
+    const rawMessageBase64Url = Buffer.from(messageBuffer)
+      .toString('base64')
+      .replace(/\+/g, '-')
+      .replace(/\//g, '_')
+      .replace(/=+$/, '');
+
+    // 3. Obtain a fresh Gmail Access Token
+    const accessToken = await getGmailAccessToken();
+
+    // 4. Post request to Gmail Send REST API
+    const response = await fetch(`https://gmail.googleapis.com/gmail/v1/users/${encodeURIComponent(gmailUser)}/messages/send`, {
+      method: 'POST',
+      headers: {
+        'Authorization': `Bearer ${accessToken}`,
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        raw: rawMessageBase64Url
+      })
+    });
+
+    const result = await response.json();
+
+    if (result.error) {
+      console.error('❌ Failed to send email via Gmail REST API:', emailPayload.subject, result.error.message);
+      return null;
+    }
+
+    console.log('✉️ Email sent successfully via Gmail API:', emailPayload.subject, 'ID:', result.id);
+    return result;
+
   } catch (error) {
-    console.error('❌ Failed to send email via Nodemailer:', emailPayload.subject, error.message || error);
+    console.error('❌ Failed to send email via Gmail REST API:', emailPayload.subject, error.message || error);
     return null;
   }
 }
