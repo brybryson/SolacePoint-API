@@ -1,6 +1,6 @@
 const express = require('express');
 const cors = require('cors');
-const { Resend } = require('resend');
+const nodemailer = require('nodemailer');
 const db = require('./db');
 require('dotenv').config();
 
@@ -16,15 +16,22 @@ app.use(cors({
 
 app.use(express.json());
 
-// Initialize Resend email client
-let resendClient;
-const resendApiKey = process.env.RESEND_API_KEY;
+// Initialize Nodemailer Gmail transporter
+let mailTransporter;
+const gmailUser = process.env.GMAIL_USER;
+const gmailAppPassword = process.env.GMAIL_APP_PASSWORD;
 
-if (resendApiKey) {
-  resendClient = new Resend(resendApiKey);
-  console.log('📬 Resend Email Client initialized successfully.');
+if (gmailUser && gmailAppPassword) {
+  mailTransporter = nodemailer.createTransport({
+    service: 'gmail',
+    auth: {
+      user: gmailUser,
+      pass: gmailAppPassword
+    }
+  });
+  console.log('📬 Nodemailer Gmail Transporter initialized successfully.');
 } else {
-  console.warn('⚠️ WARNING: RESEND_API_KEY is missing in .env. Email notifications will be skipped.');
+  console.warn('⚠️ WARNING: GMAIL_USER or GMAIL_APP_PASSWORD is missing in .env. Email notifications will be skipped.');
 }
 
 // Centralized configurations
@@ -139,31 +146,27 @@ function buildHtmlTemplate(title, subtitle, contentHtml, isAlert = false) {
   `;
 }
 
-// Helper to send emails defensively via Resend
+// Helper to send emails defensively via Nodemailer (Gmail SMTP)
 async function safeSendEmail(emailPayload) {
-  if (!resendClient) {
-    console.log('✉️ Email send skipped (No valid Resend API key configured):', emailPayload.subject);
+  if (!mailTransporter) {
+    console.log('✉️ Email send skipped (No valid Gmail SMTP configured):', emailPayload.subject);
     return null;
   }
 
   try {
-    const { data, error } = await resendClient.emails.send({
-      from: `${emailPayload.from} <onboarding@resend.dev>`,
-      to: [emailPayload.to],
+    const mailOptions = {
+      from: `"${emailPayload.from}" <${process.env.GMAIL_USER}>`,
+      to: emailPayload.to,
       subject: emailPayload.subject,
       html: emailPayload.html,
-      reply_to: REPLY_TO_EMAIL
-    });
+      replyTo: REPLY_TO_EMAIL
+    };
 
-    if (error) {
-      console.error('❌ Failed to send email via Resend:', emailPayload.subject, error.message);
-      return null;
-    }
-
-    console.log('✉️ Email sent successfully:', emailPayload.subject, 'ID:', data.id);
-    return data;
+    const info = await mailTransporter.sendMail(mailOptions);
+    console.log('✉️ Email sent successfully:', emailPayload.subject, 'Message ID:', info.messageId);
+    return info;
   } catch (error) {
-    console.error('❌ Failed to send email via Resend:', emailPayload.subject, error.message);
+    console.error('❌ Failed to send email via Nodemailer:', emailPayload.subject, error.message || error);
     return null;
   }
 }
