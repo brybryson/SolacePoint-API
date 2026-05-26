@@ -53,6 +53,15 @@ if (process.env.GMAIL_USER && process.env.GMAIL_CLIENT_ID && process.env.GMAIL_C
   console.warn('⚠️ WARNING: GMAIL OAuth2 configuration variables are missing in .env. Email notifications will be skipped.');
 }
 
+// Helper to format dates cleanly into "Month Day, Year Hour:Minute AM/PM" (e.g. "May 26, 2026 12:42 PM")
+function formatDateTime(date = new Date()) {
+  const optionsDate = { year: 'numeric', month: 'long', day: 'numeric' };
+  const optionsTime = { hour: 'numeric', minute: '2-digit', hour12: true };
+  const dateStr = date.toLocaleDateString('en-US', optionsDate);
+  const timeStr = date.toLocaleTimeString('en-US', optionsTime);
+  return `${dateStr} ${timeStr}`;
+}
+
 // Centralized configurations
 const REPLY_TO_EMAIL = 'solacepoint.insuranceagency@gmail.com';
 const INTERNAL_ALERT_RECIPIENT = 'solacepoint.insuranceagency@gmail.com'; // Your inbox where you want to read all incoming client leads
@@ -291,6 +300,10 @@ app.post('/api/contact', async (req, res) => {
               <td style="padding: 14px 10px; font-weight: 700; text-align: left;">Source Portal:</td>
               <td style="padding: 14px 10px; text-align: right; font-weight: 500;">Web Form (/contact)</td>
             </tr>
+            <tr style="border-bottom: 1px solid #eef2f6;">
+              <td style="padding: 14px 10px; font-weight: 700; text-align: left;">Submission Date:</td>
+              <td style="padding: 14px 10px; text-align: right; font-weight: 500;">${formatDateTime()}</td>
+            </tr>
           </table>
           
           <p style="margin: 0 0 10px 0; font-family: 'Montserrat', sans-serif; font-size: 11px; font-weight: 800; color: #1E3F62; text-transform: uppercase; letter-spacing: 0.1em; text-align: left;">Client Message:</p>
@@ -436,6 +449,10 @@ app.post('/api/quote', async (req, res) => {
               <td style="padding: 14px 10px; font-weight: 700; text-align: left;">Estimated Amount:</td>
               <td style="padding: 14px 10px; text-align: right; color: #AF7F2A; font-weight: 800;">₱${parseFloat(estimatedAmount).toLocaleString('en-US', { minimumFractionDigits: 2 })}</td>
             </tr>
+            <tr style="border-bottom: 1px solid #eef2f6;">
+              <td style="padding: 14px 10px; font-weight: 700; text-align: left;">Request Date:</td>
+              <td style="padding: 14px 10px; text-align: right; font-weight: 500;">${formatDateTime()}</td>
+            </tr>
           </table>
           
           <p style="margin: 0 0 10px 0; font-family: 'Montserrat', sans-serif; font-size: 11px; font-weight: 800; color: #1E3F62; text-transform: uppercase; letter-spacing: 0.1em; text-align: left;">Coverage Specifications:</p>
@@ -548,6 +565,10 @@ app.post('/api/advisory', async (req, res) => {
             <tr style="border-bottom: 1px solid #eef2f6;">
               <td style="padding: 14px 10px; font-weight: 700; text-align: left;">Area of Interest:</td>
               <td style="padding: 14px 10px; text-align: right; color: #1E3F62; font-weight: 600; text-transform: capitalize;">${interest}</td>
+            </tr>
+            <tr style="border-bottom: 1px solid #eef2f6;">
+              <td style="padding: 14px 10px; font-weight: 700; text-align: left;">Request Date:</td>
+              <td style="padding: 14px 10px; text-align: right; font-weight: 500;">${formatDateTime()}</td>
             </tr>
           </table>
           
@@ -667,7 +688,7 @@ app.post('/api/newsletter', async (req, res) => {
             </tr>
             <tr style="border-bottom: 1px solid #eef2f6;">
               <td style="padding: 14px 10px; font-weight: 700; text-align: left;">Joined Date:</td>
-              <td style="padding: 14px 10px; text-align: right; font-weight: 500;">${new Date().toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}</td>
+              <td style="padding: 14px 10px; text-align: right; font-weight: 500;">${formatDateTime()}</td>
             </tr>
           </table>
           
