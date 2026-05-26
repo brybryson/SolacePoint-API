@@ -61,3 +61,29 @@ For a launching insurance agency, the limits are exceptionally generous:
 * **Current Free Limit**: **500 emails per day** (provided by your free personal `@gmail.com` account).
 * **Business Capacity**: Since each form submission sends 2 emails (1 alert to us, 1 receipt to the client), this accommodates up to **250 customer leads per day completely free**.
 * **Seamless Upgrading**: If the agency grows and we eventually exceed 250 leads per day, we can transition to a paid **Google Workspace** business account (e.g., `info@solacepoint.com`). This automatically raises the limit to **2,000 emails per day** with **zero code modifications**!
+
+---
+
+## 🗄️ Database Infrastructure (Supabase & PostgreSQL)
+
+Your supervisor may also ask about our database infrastructure. Here is a clear breakdown of what we use and its costs:
+
+### 1. The Technology: PostgreSQL via Supabase
+* **PostgreSQL**: This is the industry-standard, gold-standard relational database used by giant companies like Apple, Skype, and Instagram. It is incredibly robust, secure, and fast.
+* **Supabase**: This is a secure, cloud-based platform that hosts and manages our PostgreSQL database for us, ensuring that lead records, quotes, and subscriptions are stored securely in the cloud.
+
+### 2. Is it Free? (Supabase Free Tier Limits)
+Yes, your database is hosted on **Supabase's Free Tier ($0/month)**. It is extremely generous and includes:
+
+* **500 MB of Database Storage**: 
+  * *Why this is huge:* Because our database only stores text records (client names, emails, messages), each entry uses less than **1 KB** of space.
+  * *Capacity:* You can store **over 500,000 client leads** in the database before you will ever need to upgrade!
+* **5 GB of Monthly Data Bandwidth**:
+  * This is more than enough for a text-based backend; we will use less than 1% of this limit.
+
+### 3. ⚠️ Important Free Tier Rule: "Inactivity Pausing"
+* **The Rule**: On the free tier, if your database receives **zero traffic or API requests for 7 consecutive days**, Supabase will temporarily "pause" it to save server power.
+* **The Solution**: 
+  * If it pauses, your website will show a connection error. You can wake it up instantly for free by logging into your Supabase dashboard and clicking **"Restore Project"**.
+  * **To prevent it from pausing**, simply visit your live website once a week, or as your business gets organic visitors, the database will stay awake permanently!
+* **Future Upgrade**: If you want to disable pausing forever and get automated daily backups, you can upgrade to their **Pro Plan ($25/month)**. But for now, the free tier is perfect for launch!
