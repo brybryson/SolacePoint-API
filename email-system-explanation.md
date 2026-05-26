@@ -5,7 +5,7 @@
 
 ## 📋 Executive Summary (The "Elevator Pitch")
 We have successfully implemented a **production-ready, 100% free, and highly secure email delivery system** for SolacePoint. 
-* **The Goal**: Ensure that when a client requests a quote, schedules a consultation, or joins the newsletter, they instantly receive a premium confirmation email, and our intake team is immediately notified.
+* **The Goal**: Ensure that when a client requests a quote, schedules a consultation, or joins the newsletter, they instantly receive a confirmation email, and the team is immediately notified thru the company email.
 * **The Achievement**: We migrated from standard email connections (which cloud servers block) to the **Google Gmail REST API (over HTTPS)**. This runs on standard secure web traffic, completely bypassing cloud firewalls, and guarantees high email deliverability directly into client inboxes at **zero monthly cost**.
 
 ---
