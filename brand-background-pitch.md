@@ -50,6 +50,6 @@ Our website’s look and features were built to make insurance feel simple and r
 > 
 > *Our core philosophy is simple: **we don't just sell insurance—we sell peace of mind.** Our name, 'SolacePoint,' stands for the place you go to get relief from your worries and secure what matters most.*
 >
-> *We brought this idea to life on our website. We used a trusted deep blue and gold color scheme to make it feel clean, secure, and highly professional. We also designed a simple claims portal called **The Lighthouse**, which is built to be a guiding light for clients when an accident happens—the place where their stress ends and our help begins.*
+> *We brought this idea to life on our website. We used a trusted deep blue and gold color scheme to make it feel clean, secure, and highly professional. We also designed the logo which symbolizes **The Lighthouse**, which is built to be a guiding light for clients when an accident happens—the place where their stress ends and our help begins.*
 >
 > *Supported by a secure, free database and automated email system, SolacePoint is built to be a reliable, helpful partner for our clients' future. Thank you!"*

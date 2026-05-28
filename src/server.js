@@ -126,7 +126,7 @@ function buildHtmlTemplate(title, subtitle, contentHtml, isAlert = false) {
                       </td>
                       <td style="vertical-align: middle; border-left: 2px solid rgba(255, 255, 255, 0.15); padding-left: 24px;">
                         <span class="font-montserrat" style="font-size: 26px; font-weight: 900; letter-spacing: 0.1em; color: #ffffff; display: block; text-transform: uppercase; line-height: 1.1;">Solace Point</span>
-                        <span class="font-montserrat" style="font-size: 10px; font-weight: 800; text-transform: uppercase; letter-spacing: 0.35em; color: ${accentColor}; display: block; margin-top: 8px;">Architects of Stability</span>
+                        <span class="font-montserrat" style="font-size: 10px; font-weight: 800; text-transform: uppercase; letter-spacing: 0.35em; color: ${accentColor}; display: block; margin-top: 8px;">insurance agency</span>
                       </td>
                     </tr>
                   </table>
